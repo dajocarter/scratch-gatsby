@@ -2,13 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import Link from "gatsby-link";
 import Helmet from "react-helmet";
-
+import logo from "./site-logo.svg";
 import "./index.scss";
 
 const Header = () => (
   <div
     style={{
-      background: "rebeccapurple",
+      background: "#3d9970",
       marginBottom: "1.45rem"
     }}
   >
@@ -16,20 +16,12 @@ const Header = () => (
       style={{
         margin: "0 auto",
         maxWidth: 960,
-        padding: "1.45rem 1.0875rem"
+        padding: "0.5rem 1rem"
       }}
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: "white",
-            textDecoration: "none"
-          }}
-        >
-          Gatsby
-        </Link>
-      </h1>
+      <Link to="/">
+        <img src={logo} style={{ width: 245, height: 58, margin: 0 }} />
+      </Link>
     </div>
   </div>
 );
