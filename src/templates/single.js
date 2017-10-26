@@ -1,13 +1,21 @@
-import React, { Component } from "react";
+import React from "react";
 
-class SingleTemplate extends Component {
-  render() {
-    return (
-      <div>
-        <h1>Single Post Template</h1>
-      </div>
-    );
+const PostTemplate = props => (
+  <div>
+    <h1 dangerouslySetInnerHTML={{ __html: props.data.wordpressPost.title }} />
+    <div
+      dangerouslySetInnerHTML={{ __html: props.data.wordpressPost.content }}
+    />
+  </div>
+);
+
+export default PostTemplate;
+
+export const postQuery = graphql`
+  query currentPostQuery($id: Int!) {
+    wordpressPost(wordpress_id: { eq: $id }) {
+      title
+      content
+    }
   }
-}
-
-export default SingleTemplate;
+`;
