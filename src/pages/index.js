@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const IndexPage = () => (
   <div>
@@ -6,6 +6,6 @@ const IndexPage = () => (
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
   </div>
-)
+);
 
-export default IndexPage
+export default IndexPage;
