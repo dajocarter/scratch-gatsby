@@ -29,3 +29,42 @@ header {
     width: 200px;
   }
 }
+.menu-nav {
+  float: right;
+}
+.main-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  li {
+    flex: 0 0 auto;
+  }
+
+  a {
+    color: white;
+    display: block;
+    padding: 1.5rem 1rem;
+    text-decoration: none;
+
+    &:hover {
+      background-color: darken($header-color, 5%);
+    }
+  }
+}
+@media (max-width: 480px) {
+  .logo {
+    text-align: center;
+    width: 100%;
+  }
+  .menu-nav {
+    clear: left;
+    float: none;
+  }
+  .main-nav {
+    justify-content: space-around;
+  }
+}
