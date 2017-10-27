@@ -19,6 +19,7 @@ const IndexPage = props => (
           <h3>{node.title}</h3>
         </Link>
         <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+        <Link to={node.slug}>Read More</Link>
       </div>
     ))}
   </div>
