@@ -5,25 +5,14 @@ import Helmet from "react-helmet";
 import logo from "./site-logo.svg";
 import "./index.scss";
 
-const Header = () => (
-  <div
-    style={{
-      background: "#3d9970",
-      marginBottom: "1.45rem"
-    }}
-  >
-    <div
-      style={{
-        margin: "0 auto",
-        maxWidth: 960,
-        padding: "0.5rem 1rem"
-      }}
-    >
-      <Link to="/">
-        <img src={logo} style={{ width: 245, height: 58, margin: 0 }} />
+const Header = props => (
+  <header>
+    <div className="wrap">
+      <Link className="logo" to="/">
+        <img src={logo} alt="site-logo" />
       </Link>
     </div>
-  </div>
+  </header>
 );
 
 const TemplateWrapper = ({ data, children }) => (
