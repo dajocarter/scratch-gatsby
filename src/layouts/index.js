@@ -54,3 +54,18 @@ TemplateWrapper.propTypes = {
 };
 
 export default TemplateWrapper;
+
+export const menuQuery = graphql`
+  query menuQuery {
+    wordpressWpApiMenusMenusItems(wordpress_id: { eq: 2 }) {
+      slug
+      items {
+        wordpress_id
+        title
+        url
+        object
+        type
+      }
+    }
+  }
+`;
