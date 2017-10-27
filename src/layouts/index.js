@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Link from "gatsby-link";
 import Helmet from "react-helmet";
 import logo from "./site-logo.svg";
+import Navigation from "../components/Navigation";
 import "./index.scss";
 
 const Header = props => (
@@ -11,6 +12,8 @@ const Header = props => (
       <Link className="logo" to="/">
         <img src={logo} alt="site-logo" />
       </Link>
+
+      <Navigation menuName={props.menu.slug} menuItems={props.menu.items} />
     </div>
   </header>
 );
