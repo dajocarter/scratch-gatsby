@@ -54,7 +54,7 @@ export const menuQuery = graphql`
       items {
         wordpress_id
         title
-        url
+        object_slug
         object
         type
       }

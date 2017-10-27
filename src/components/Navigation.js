@@ -17,7 +17,7 @@ class Navigation extends Component {
                 key={`menu-item-${item.wordpress_id}`}
                 className={`menu-item menu-item-type-${item.type} menu-item-object-${item.object} menu-item-${item.wordpress_id}`}
               >
-                <Link to={item.url}>{item.title}</Link>
+                <Link to={`/${item.object_slug}/`}>{item.title}</Link>
               </li>
             ))}
           </ul>
