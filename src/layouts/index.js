@@ -26,7 +26,7 @@ const Header = () => (
   </div>
 );
 
-const TemplateWrapper = ({ children }) => (
+const TemplateWrapper = ({ data, children }) => (
   <div>
     <Helmet
       title="Gatsby Default Starter"
@@ -35,7 +35,7 @@ const TemplateWrapper = ({ children }) => (
         { name: "keywords", content: "sample, something" }
       ]}
     />
-    <Header />
+    <Header menu={data.wordpressWpApiMenusMenusItems} />
     <div
       style={{
         margin: "0 auto",
