@@ -3,8 +3,22 @@ import PropTypes from "prop-types";
 import Link from "gatsby-link";
 import Helmet from "react-helmet";
 import logo from "./site-logo.svg";
-import Navigation from "../components/Navigation";
 import "./index.scss";
+
+const Navigation = props => (
+  <nav className="menu-nav">
+    <ul className={props.menuName}>
+      {props.menuItems.filter(item => item.object_slug !== "home").map(item => (
+        <li
+          key={`menu-item-${item.wordpress_id}`}
+          className={`menu-item menu-item-type-${item.type} menu-item-object-${item.object} menu-item-${item.wordpress_id}`}
+        >
+          <Link to={`/${item.object_slug}/`}>{item.title}</Link>
+        </li>
+      ))}
+    </ul>
+  </nav>
+);
 
 const Header = props => (
   <header>
