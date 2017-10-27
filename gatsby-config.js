@@ -14,6 +14,12 @@ module.exports = {
         verboseOutput: true
       }
     },
-    `gatsby-plugin-sass`
+    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`Lato`]
+      }
+    }
   ]
 };
