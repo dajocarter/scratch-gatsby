@@ -10,6 +10,7 @@
     "gatsby-plugin-sass": "^1.0.12",
     "gatsby-source-wordpress": "^2.0.28",
     "normalize-scss": "^7.0.0",
+    "react-icons": "^2.2.7"
   },
   "keywords": [
     "gatsby"
