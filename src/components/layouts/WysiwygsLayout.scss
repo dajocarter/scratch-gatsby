@@ -1,0 +1,49 @@
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  .flex-column {
+    flex: 1 1 100%;
+    @media (min-width: 767px) {
+      flex: 1 0 45%;
+      &:nth-child(even) {
+        padding-left: 2rem;
+      }
+    }
+  }
+
+  &.thirds-1-2 {
+    .flex-column {
+      &:nth-child(even) {
+        flex: 1 1 100%;
+        @media (min-width: 767px) {
+          flex: 1 0 30%;
+        }
+      }
+      &:nth-child(odd) {
+        flex: 1 1 100%;
+        @media (min-width: 767px) {
+          flex: 1 0 60%;
+        }
+      }
+    }
+  }
+  &.thirds-2-1 {
+    .flex-column {
+      &:nth-child(even) {
+        flex: 1 1 100%;
+        @media (min-width: 767px) {
+          flex: 1 0 60%;
+        }
+      }
+      &:nth-child(odd) {
+        flex: 1 1 100%;
+        @media (min-width: 767px) {
+          flex: 1 0 30%;
+        }
+      }
+    }
+  }
+}
