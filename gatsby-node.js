@@ -4,9 +4,10 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators;
 
   return new Promise((resolve, reject) => {
-    const postTemplate = path.resolve(`src/templates/single.js`);
-    const pageTemplate = path.resolve(`src/templates/page.js`);
     const archiveTemplate = path.resolve(`src/templates/archive.js`);
+    const pageTemplate = path.resolve(`src/templates/page.js`);
+    const layoutsTemplate = path.resolve(`src/templates/page-layouts.js`);
+    const postTemplate = path.resolve(`src/templates/single.js`);
 
     resolve(
       graphql(`
@@ -17,6 +18,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
                 wordpress_id
                 slug
                 status
+                template
               }
             }
           }
@@ -43,6 +45,14 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
               createPage({
                 path: `/${node.slug}/`,
                 component: archiveTemplate,
+                context: {
+                  id: node.wordpress_id
+                }
+              });
+            } else if (node.template === "page-layouts.php") {
+              createPage({
+                path: `/${node.slug}/`,
+                component: layoutsTemplate,
                 context: {
                   id: node.wordpress_id
                 }
