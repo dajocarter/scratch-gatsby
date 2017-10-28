@@ -41,6 +41,9 @@ const PageLayoutsTemplate = props => (
         case "WordPressAcf_staggered_images_with_text":
           return <StaggeredRowsLayout layout={layout} key={index} />;
           break;
+        case "WordPressAcf_toggles":
+          return <TogglesLayout layout={layout} key={index} />;
+          break;
         case "WordPressAcf_video":
           return <VideoLayout layout={layout} key={index} />;
           break;
