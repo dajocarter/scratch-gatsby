@@ -3,7 +3,10 @@ import "./WysiwygsLayout.scss";
 class WysiwygsLayout extends Component {
   renderHeader() {
     return this.props.layout.header ? (
-      <h2 className="layout-header">{this.props.layout.header}</h2>
+      <h2
+        className="layout-header"
+        dangerouslySetInnerHTML={{ __html: this.props.layout.header }}
+      />
     ) : (
       ""
     );
