@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import FaChevronDown from "react-icons/lib/fa/chevron-down";
 import FaChevronUp from "react-icons/lib/fa/chevron-up";
-import "./Toggles.scss";
+import TransitionGroup from "react-addons-transition-group";
+import "./Accordion.scss";
 
 class ContentToggle extends Component {
   constructor() {
@@ -26,14 +27,14 @@ class ContentToggle extends Component {
             <FaChevronDown className="toggle-icon" />
           )}
         </h2>
-        <div
-          className={
-            this.state.showContent
-              ? "toggle-content content-show"
-              : "toggle-content content-hide"
-          }
-          dangerouslySetInnerHTML={{ __html: this.props.content }}
-        />
+        <TransitionGroup>
+          {this.state.showContent && (
+            <div
+              className="toggle-content"
+              dangerouslySetInnerHTML={{ __html: this.props.content }}
+            />
+          )}
+        </TransitionGroup>
       </div>
     );
   }

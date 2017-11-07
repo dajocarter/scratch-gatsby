@@ -13,18 +13,6 @@ $toggle-color: #3d9970;
       margin-bottom: 0;
     }
   }
-
-  &.content-show {
-    display: block;
-    opacity: 1;
-    visibility: visible;
-  }
-
-  &.content-hide {
-    display: none;
-    opacity: 0;
-    visibility: hidden;
-  }
 }
 
 .toggle-heading {

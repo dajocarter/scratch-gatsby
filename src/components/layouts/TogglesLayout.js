@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ContentToggle from "../ContentToggle";
+import Accordion from "../Accordion";
 
 const TogglesLayout = props => (
   <section className="toggles">
@@ -17,7 +17,7 @@ const TogglesLayout = props => (
       ""
     )}
     {props.layout.toggles.map((toggle, index) => (
-      <ContentToggle
+      <Accordion
         key={`toggle-${index}`}
         header={toggle.toggle_header}
         content={toggle.toggle_content}
