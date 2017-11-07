@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import FaChevronDown from "react-icons/lib/fa/chevron-down";
 import FaChevronUp from "react-icons/lib/fa/chevron-up";
-import TransitionGroup from "react-addons-transition-group";
+import { VelocityTransitionGroup } from "velocity-react";
 import "./Accordion.scss";
 
-class ContentToggle extends Component {
+class Accordion extends Component {
   constructor() {
     super();
     this.state = {
@@ -27,17 +27,22 @@ class ContentToggle extends Component {
             <FaChevronDown className="toggle-icon" />
           )}
         </h2>
-        <TransitionGroup>
-          {this.state.showContent && (
+        <VelocityTransitionGroup
+          enter={{ animation: "slideDown", duration: 200 }}
+          leave={{ animation: "slideUp", duration: 200 }}
+        >
+          {this.state.showContent ? (
             <div
               className="toggle-content"
               dangerouslySetInnerHTML={{ __html: this.props.content }}
             />
+          ) : (
+            undefined
           )}
-        </TransitionGroup>
+        </VelocityTransitionGroup>
       </div>
     );
   }
 }
 
-export default ContentToggle;
+export default Accordion;
