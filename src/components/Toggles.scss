@@ -1,0 +1,47 @@
+$toggle-color: #3d9970;
+.toggle-content {
+  padding: 1rem 1rem 0;
+  position: relative;
+  transition: all 0.2s ease;
+
+  p {
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &.content-show {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &.content-hide {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.toggle-heading {
+  border: 1px solid $toggle-color;
+  color: $toggle-color;
+  cursor: pointer;
+  display: block;
+  margin: 1.5rem auto 0;
+  padding: 0.5rem 1.75rem 0.5rem 0.5rem;
+  position: relative;
+
+  .toggle-icon {
+    bottom: 10px;
+    color: $toggle-color;
+    display: block;
+    line-height: inherit;
+    position: absolute;
+    right: 0.5rem;
+  }
+}
