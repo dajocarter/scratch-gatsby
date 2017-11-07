@@ -168,7 +168,7 @@ export const pageQuery = graphql`
           ... on WordPressAcf_multiple_images_with_text {
             image_side
             images {
-              url
+              source_url
             }
             header
             content
@@ -179,7 +179,9 @@ export const pageQuery = graphql`
           }
           ... on WordPressAcf_slider {
             slides {
-              background
+              background {
+                id
+              }
               header
               blurb
               add_button
