@@ -162,7 +162,9 @@ export const pageQuery = graphql`
             header
             logo_display
             logos {
-              logo
+              logo {
+                source_url
+              }
               link
             }
           }
