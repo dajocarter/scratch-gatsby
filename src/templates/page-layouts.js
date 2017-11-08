@@ -105,7 +105,9 @@ export const pageQuery = graphql`
             }
           }
           ... on WordPressAcf_hero_unit {
-            background_image
+            background_image {
+              source_url
+            }
             bg_image_pos_x
             bg_image_pos_y
             text_align
@@ -127,7 +129,6 @@ export const pageQuery = graphql`
             blurb
             columns {
               icon_or_image
-              icon
               image
               header
               blurb
@@ -194,7 +195,6 @@ export const pageQuery = graphql`
           ... on WordPressAcf_staggered_images_with_text {
             rows {
               icon_or_image
-              icon
               header
               blurb
               add_button
