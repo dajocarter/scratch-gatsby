@@ -180,7 +180,7 @@ export const pageQuery = graphql`
           ... on WordPressAcf_slider {
             slides {
               background {
-                id
+                source_url
               }
               header
               blurb
