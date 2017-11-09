@@ -129,7 +129,9 @@ export const pageQuery = graphql`
             blurb
             columns {
               icon_or_image
-              image
+              image {
+                source_url
+              }
               header
               blurb
               add_button

@@ -1,0 +1,41 @@
+.flexible-columns {
+  .flex-column {
+    padding: 1rem;
+    text-align: center;
+
+    .circle {
+      height: 150px;
+      width: 150px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 50%;
+      background-color: #3d9970;
+
+      &.scratch-bg {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    }
+
+    a {
+      &:hover,
+      &:focus {
+        text-decoration: none;
+
+        .circle {
+          opacity: 0.8;
+        }
+
+        i {
+          color: white;
+          font-size: 3rem;
+        }
+      }
+    }
+  }
+
+  .button-wrapper {
+    clear: both;
+  }
+}
