@@ -198,7 +198,7 @@ export const pageQuery = graphql`
           }
           ... on WordPressAcf_staggered_images_with_text {
             rows {
-              icon_or_image
+              image
               header
               blurb
               add_button
