@@ -68,3 +68,57 @@ header {
     justify-content: space-around;
   }
 }
+
+$grid: (
+  onecol: 5.8011%,
+  twocol: 14.36464%,
+  twoptfourcol: 17.73757%,
+  threecol: 22.92818%,
+  fourcol: 31.49171%,
+  fivecol: 40.05525%,
+  sixcol: 48.61878%,
+  sevencol: 57.18232%,
+  eightcol: 65.74586%,
+  ninecol: 74.30939%,
+  tencol: 82.87293%,
+  elevencol: 91.43646%,
+  twelvecol: 100%
+);
+
+@mixin common-column-styles {
+  float: left;
+  margin-left: 2.762430939%;
+  position: relative;
+}
+
+@each $columnSize, $width in $grid {
+  .#{$columnSize}-always {
+    @include common-column-styles;
+
+    width: #{$width};
+
+    &.first {
+      margin-left: 0;
+    }
+
+    &.last {
+      float: right;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .#{$columnSize} {
+      @include common-column-styles;
+
+      width: #{$width};
+
+      &.first {
+        margin-left: 0;
+      }
+
+      &.last {
+        float: right;
+      }
+    }
+  }
+}
