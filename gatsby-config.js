@@ -27,6 +27,8 @@ module.exports = {
       options: {
         fonts: [`Lato`]
       }
-    }
+    },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`
   ]
 };
