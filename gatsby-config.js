@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`
@@ -11,7 +13,12 @@ module.exports = {
         protocol: `https`,
         hostingWPCOM: false,
         useACF: true,
-        verboseOutput: true
+        verboseOutput: true,
+        auth: {
+          htaccess_user: process.env.HTACCESS_USER,
+          htaccess_pass: process.env.HTACCESS_PASS,
+          htaccess_sendImmediately: false
+        }
       }
     },
     `gatsby-plugin-sass`,
