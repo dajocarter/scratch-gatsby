@@ -248,9 +248,23 @@ export const pageQuery = graphql`
 					}
 					... on WordPressAcf_staggered_images_with_text {
 						rows {
+							image {
+								localFile {
+									childImageSharp {
+										resize(width: 550) {
+											src
+										}
+									}
+								}
+							}
 							header
 							blurb
 							add_button
+							button_link {
+								title
+								target
+								url
+							}
 							button_text
 						}
 					}

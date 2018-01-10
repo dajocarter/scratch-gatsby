@@ -1,75 +1,78 @@
 .staggered {
-  .circle {
-    height: 250px;
-    width: 250px;
-    border-radius: 50%;
+	.circle {
+		height: 250px;
+		width: 250px;
+		border-radius: 50%;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
 
-    @media (min-width: 768px) {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-  }
+		@media (min-width: 768px) {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
 
-  .valign {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-  }
+	.valign {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+	}
 
-  a {
-    &:hover,
-    &:focus {
-      text-decoration: none;
+	a {
+		&:hover,
+		&:focus {
+			text-decoration: none;
 
-      .circle {
-        &.scratch-bg {
-          background-color: transparent;
-          opacity: 0.8;
-        }
-      }
-    }
-  }
+			.circle {
+				&.scratch-bg {
+					background-color: transparent;
+					opacity: 0.8;
+				}
+			}
+		}
+	}
 
-  .button-wrapper {
-    clear: both;
-  }
+	.button-wrapper {
+		clear: both;
+	}
 
-  .row {
-    &:nth-child(odd) {
-      background-color: silver;
-    }
+	.row {
+		&:nth-child(odd) {
+			background-color: silver;
+		}
 
-    @media (max-width: 767px) {
-      .wrap {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-      }
+		@media (max-width: 767px) {
+			.wrap {
+				padding-top: 1rem;
+				padding-bottom: 1rem;
+			}
 
-      .content {
-        text-align: center;
-      }
-    }
+			.content {
+				text-align: center;
+			}
+		}
 
-    @media (min-width: 768px) {
-      height: 500px;
+		@media (min-width: 768px) {
+			height: 500px;
 
-      &:nth-child(even) {
-        .first {
-          float: right;
-        }
-      }
+			&:nth-child(even) {
+				.first {
+					float: right;
+				}
+			}
 
-      .first,
-      .last,
-      .wrap {
-        height: 100%;
+			.first,
+			.last,
+			.wrap {
+				height: 100%;
 
-        h3 {
-          margin-top: 0;
-        }
-      }
-    }
-  }
+				h3 {
+					margin-top: 0;
+				}
+			}
+		}
+	}
 }
