@@ -137,15 +137,8 @@ export const pageQuery = graphql`
 							image {
 								localFile {
 									childImageSharp {
-										resolutions(width: 400) {
-											aspectRatio
-											width
-											height
+										resize(width: 350) {
 											src
-											srcSet
-											srcWebp
-											srcSetWebp
-											originalName
 										}
 									}
 								}
@@ -153,6 +146,11 @@ export const pageQuery = graphql`
 							header
 							blurb
 							add_button
+							button_link {
+								title
+								url
+								target
+							}
 							button_text
 						}
 					}
