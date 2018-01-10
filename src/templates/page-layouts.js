@@ -95,7 +95,11 @@ export const pageQuery = graphql`
               post_type
             }
             cards {
-              image
+              image {
+                source_url
+                description
+                alt_text
+              }
               header
               blurb
               add_button
@@ -116,7 +120,9 @@ export const pageQuery = graphql`
             blurb
             add_button
             internal_link
-            button_internal_link
+            button_internal_link {
+              post_name
+            }
             button_external_link
             button_text
           }
@@ -136,7 +142,6 @@ export const pageQuery = graphql`
               blurb
               add_button
               internal_link
-              button_internal_link
               button_external_link
               button_text
             }
@@ -155,7 +160,6 @@ export const pageQuery = graphql`
               animation
               add_button
               internal_link
-              button_internal_link
               button_external_link
               button_text
             }
@@ -191,7 +195,9 @@ export const pageQuery = graphql`
               blurb
               add_button
               internal_link
-              button_internal_link
+              button_internal_link {
+                post_name
+              }
               button_external_link
               button_text
             }
@@ -203,7 +209,9 @@ export const pageQuery = graphql`
               blurb
               add_button
               internal_link
-              button_internal_link
+              button_internal_link {
+                post_name
+              }
               button_external_link
               button_text
             }
