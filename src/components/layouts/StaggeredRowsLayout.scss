@@ -6,6 +6,7 @@
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
+		margin: 0 auto;
 
 		@media (min-width: 768px) {
 			position: absolute;
@@ -16,9 +17,11 @@
 	}
 
 	.valign {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
+		@media (min-width: 768px) {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+		}
 	}
 
 	a {
