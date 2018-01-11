@@ -85,15 +85,8 @@ export const pageQuery = graphql`
 							image {
 								localFile {
 									childImageSharp {
-										resolutions(width: 400) {
-											aspectRatio
-											width
-											height
-											src
-											srcSet
-											srcWebp
-											srcSetWebp
-											originalName
+										sizes(maxWidth: 960) {
+											...GatsbyImageSharpSizes_withWebp
 										}
 									}
 								}
