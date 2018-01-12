@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Link from "gatsby-link";
 import "./VideoLayout.scss";
 
 class VideoLayout extends Component {
@@ -42,6 +43,28 @@ class VideoLayout extends Component {
 						<source src={layout.video_ogv_file} type="video/ogg" />
 					) : null}
 				</video>
+				{layout.header || layout.blurb ? (
+					<div className="overlay">
+						<div className="wrap">
+							<div className="hvalign-always center">
+								{layout.header ? <h2>{layout.header}</h2> : null}
+								{layout.blurb ? (
+									<div dangerouslySetInnerHTML={{ __html: layout.blurb }} />
+								) : null}
+								{layout.add_button ? (
+									<p className="button-wrapper">
+										<Link
+											to={layout.button_link.url}
+											target={layout.button_link.target}
+										>
+											{layout.button_link.title}
+										</Link>
+									</p>
+								) : null}
+							</div>
+						</div>
+					</div>
+				) : null}
 			</section>
 		);
 	}

@@ -19,4 +19,29 @@ section.video {
 	video.scratch-video {
 		display: block;
 	}
+
+	.overlay {
+		position: relative;
+		height: 100%;
+		width: 100%;
+		background: rgba(0, 0, 0, 0.25);
+		transform: translateY(-100%);
+		z-index: 5;
+	}
+
+	.wrap {
+		height: 100%;
+		color: #fff;
+	}
+
+	.hvalign-always {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.center {
+		text-align: center;
+	}
 }
