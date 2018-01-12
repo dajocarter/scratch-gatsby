@@ -1,0 +1,61 @@
+.image-blocks {
+	margin-top: 2.5rem;
+	margin-bottom: 2.5rem;
+
+	.tile {
+		background-color: #3d9970;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-flow: row wrap;
+
+		@media (min-width: 768px) {
+			min-height: 525px;
+		}
+
+		@media (min-width: 935px) {
+			min-height: 475px;
+		}
+	}
+
+	.overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.25);
+	}
+
+	.post-content {
+		color: #fff;
+		padding: 60px 40px;
+		position: relative;
+		text-align: center;
+		z-index: 1;
+
+		&.valign {
+			@media (min-width: 767px) {
+				position: absolute;
+			}
+		}
+
+		h3 {
+			margin-top: 0;
+			margin-bottom: 2rem;
+		}
+
+		p {
+			margin-bottom: 0;
+		}
+
+		.button {
+			display: inline-block;
+			margin-top: 2rem;
+		}
+	}
+}

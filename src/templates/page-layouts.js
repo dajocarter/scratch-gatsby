@@ -148,15 +148,8 @@ export const pageQuery = graphql`
 							background_image {
 								localFile {
 									childImageSharp {
-										resolutions(width: 400) {
-											aspectRatio
-											width
-											height
+										original {
 											src
-											srcSet
-											srcWebp
-											srcSetWebp
-											originalName
 										}
 									}
 								}
