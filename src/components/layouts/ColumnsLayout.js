@@ -7,7 +7,7 @@ class ColumnsLayout extends Component {
 	render() {
 		const layout = this.props.layout;
 		return (
-			<sectional className="flexible-columns">
+			<section className="flexible-columns">
 				<div style={{ maxWidth: 960, marginLeft: "auto", marginRight: "auto" }}>
 					<h2 className="layout-header">{layout.header}</h2>
 					<div dangerouslySetInnerHTML={{ __html: layout.blurb }} />
@@ -58,7 +58,7 @@ class ColumnsLayout extends Component {
 						))}
 					</div>
 				</div>
-			</sectional>
+			</section>
 		);
 	}
 }
