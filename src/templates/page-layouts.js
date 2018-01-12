@@ -14,7 +14,6 @@ import WysiwygsLayout from "../components/layouts/WysiwygsLayout";
 
 const PageLayoutsTemplate = props => (
 	<article className={postClasses(props.data.wordpressPage)}>
-		<h1 dangerouslySetInnerHTML={{ __html: props.data.wordpressPage.title }} />
 		{props.data.wordpressPage.acf.layout_page.map((layout, index) => {
 			switch (layout.__typename) {
 				case "WordPressAcf_cards":
