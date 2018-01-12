@@ -1,0 +1,22 @@
+section.video {
+	height: 720px;
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+
+	.scratch-video {
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+		position: relative;
+	}
+
+	div.scratch-video {
+		display: none;
+		opacity: 0;
+	}
+
+	video.scratch-video {
+		display: block;
+	}
+}

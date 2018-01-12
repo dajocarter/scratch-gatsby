@@ -9,6 +9,7 @@ class ImageBlocksLayout extends Component {
 				<div className="wrap">
 					{layout.image_blocks.map((block, index) => (
 						<div
+							key={index}
 							className="tile"
 							style={{
 								backgroundImage: `url(${
