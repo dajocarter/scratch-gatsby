@@ -1,0 +1,87 @@
+.multiple {
+	@media (min-width: 767px) {
+		.sixcol,
+		.wrap {
+			height: 100%;
+		}
+	}
+
+	.content {
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.images {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.gallery {
+		&::before,
+		&::after {
+			clear: both;
+			content: "";
+			display: table;
+		}
+
+		width: 100%;
+
+		> img {
+			float: left;
+		}
+
+		.full {
+			width: 100%;
+		}
+
+		.half {
+			width: 50%;
+
+			&:first-child {
+				padding-right: 0.5rem;
+			}
+
+			&:last-child {
+				padding-left: 0.5rem;
+			}
+		}
+
+		.third {
+			&:nth-child(-n + 2) {
+				width: 50%;
+				margin-bottom: 1rem;
+			}
+
+			&:first-child {
+				padding-right: 0.5rem;
+			}
+
+			&:nth-child(2) {
+				padding-left: 0.5rem;
+			}
+
+			&:last-child {
+				@extend .full;
+			}
+		}
+
+		.quarter {
+			width: 50%;
+
+			&:nth-child(-n + 2) {
+				margin-bottom: 1rem;
+			}
+
+			&:nth-child(odd) {
+				padding-right: 0.5rem;
+			}
+
+			&:nth-child(even) {
+				padding-left: 0.5rem;
+			}
+		}
+	}
+}
