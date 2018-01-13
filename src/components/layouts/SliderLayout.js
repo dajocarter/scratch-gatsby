@@ -26,26 +26,28 @@ class SliderLayout extends Component {
 		};
 
 		return (
-			<Slider {...settings}>
-				{this.props.layout.slides.map((slide, index) => (
-					<div
-						key={`slide-${index}`}
-						style={{
-							backgroundImage: `url(${
-								slide.background.localFile.childImageSharp.original.src
-							})`
-						}}
-					>
-						<div className="overlay" />
-						<div className="wrapper">
-							<div className="slide-text">
-								<h2 className="layout-header slide-header">{slide.header}</h2>
-								<div dangerouslySetInnerHTML={{ __html: slide.blurb }} />
+			<section className="slider-row">
+				<Slider {...settings}>
+					{this.props.layout.slides.map((slide, index) => (
+						<div
+							key={`slide-${index}`}
+							style={{
+								backgroundImage: `url(${
+									slide.background.localFile.childImageSharp.original.src
+								})`
+							}}
+						>
+							<div className="overlay" />
+							<div className="wrapper">
+								<div className="slide-text">
+									<h2 className="layout-header slide-header">{slide.header}</h2>
+									<div dangerouslySetInnerHTML={{ __html: slide.blurb }} />
+								</div>
 							</div>
 						</div>
-					</div>
-				))}
-			</Slider>
+					))}
+				</Slider>
+			</section>
 		);
 	}
 }
