@@ -3,35 +3,103 @@ import PropTypes from "prop-types";
 import Link from "gatsby-link";
 import Helmet from "react-helmet";
 import logo from "./site-logo.svg";
+import styled from "styled-components";
+import { clearFix, darken } from "polished";
 import "./index.scss";
 
+const HeaderContainer = styled.header`
+	background-color: #3d9970;
+`;
+
+const Wrap = styled.div`
+	${clearFix()};
+	margin: 0 auto;
+	max-width: 1024px;
+	padding: 0 1rem;
+`;
+
+const NavMenu = styled.nav`
+	float: right;
+	@media (max-width: 480px) {
+		clear: left;
+		float: none;
+	}
+`;
+
+const Menu = styled.ul`
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	@media (max-width: 480px) {
+		justify-content: space-around;
+	}
+`;
+
+const MenuItem = styled.li`
+	flex: 0 0 auto;
+`;
+
+const StyledLink = styled(Link)`
+	color: white;
+	display: block;
+	padding: 1.5rem 1rem;
+	text-decoration: none;
+
+	&:hover {
+		background-color: ${darken(0.05, `#3d9970`)};
+	}
+`;
+
+const Logo = styled(Link)`
+	display: block;
+	float: left;
+	margin: 7px auto;
+	@media (max-width: 480px) {
+		text-align: center;
+		width: 100%;
+	}
+`;
+
+const LogoImg = styled.img`
+	margin: 0;
+	width: 200px;
+`;
+
+const Container = styled.main`
+	margin: 0 auto;
+	max-width: 1024px;
+	padding: 0px 1.0875rem 1.45rem;
+`;
+
 const Navigation = props => (
-	<nav className="menu-nav">
-		<ul className={props.menuName}>
+	<NavMenu>
+		<Menu>
 			{props.menuItems.filter(item => item.object_slug !== "home").map(item => (
-				<li
+				<MenuItem
 					key={`menu-item-${item.wordpress_id}`}
 					className={`menu-item menu-item-type-${item.type} menu-item-object-${
 						item.object
 					} menu-item-${item.wordpress_id}`}
 				>
-					<Link to={`/${item.object_slug}/`}>{item.title}</Link>
-				</li>
+					<StyledLink to={`/${item.object_slug}/`}>{item.title}</StyledLink>
+				</MenuItem>
 			))}
-		</ul>
-	</nav>
+		</Menu>
+	</NavMenu>
 );
 
 const Header = props => (
-	<header>
-		<div className="wrap">
-			<Link className="logo" to="/">
-				<img src={logo} alt="site-logo" />
-			</Link>
-
-			<Navigation menuName={props.menu.slug} menuItems={props.menu.items} />
-		</div>
-	</header>
+	<HeaderContainer>
+		<Wrap>
+			<Logo to="/">
+				<LogoImg src={logo} alt="site-logo" />
+			</Logo>
+			<Navigation menuItems={props.menu.items} />
+		</Wrap>
+	</HeaderContainer>
 );
 
 const TemplateWrapper = ({ data, children }) => (
@@ -47,16 +115,7 @@ const TemplateWrapper = ({ data, children }) => (
 			]}
 		/>
 		<Header menu={data.wordpressWpApiMenusMenusItems} />
-		<div
-			style={{
-				margin: "0 auto",
-				maxWidth: 960,
-				padding: "0px 1.0875rem 1.45rem",
-				paddingTop: 0
-			}}
-		>
-			{children()}
-		</div>
+		<Container>{children()}</Container>
 	</div>
 );
 
