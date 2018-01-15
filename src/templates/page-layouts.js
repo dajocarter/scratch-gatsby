@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import { postClasses } from "../utilities/functions";
 import CardsLayout from "../components/layouts/CardsLayout";
 import ColumnsLayout from "../components/layouts/ColumnsLayout";
@@ -12,8 +13,14 @@ import TogglesLayout from "../components/layouts/TogglesLayout";
 import VideoLayout from "../components/layouts/VideoLayout";
 import WysiwygsLayout from "../components/layouts/WysiwygsLayout";
 
+const Article = styled.article`
+	margin: 0 auto;
+	max-width: 1024px;
+	padding: 0px 1.0875rem 1.45rem;
+`;
+
 const PageLayoutsTemplate = props => (
-	<article className={postClasses(props.data.wordpressPage)}>
+	<Article className={postClasses(props.data.wordpressPage)}>
 		{props.data.wordpressPage.acf.layout_page.map((layout, index) => {
 			switch (layout.__typename) {
 				case "WordPressAcf_cards":
@@ -54,7 +61,7 @@ const PageLayoutsTemplate = props => (
 					break;
 			}
 		})}
-	</article>
+	</Article>
 );
 
 export default PageLayoutsTemplate;

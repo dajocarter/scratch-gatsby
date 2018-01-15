@@ -77,11 +77,7 @@ const LogoImg = styled.img`
 	width: 200px;
 `;
 
-const Container = styled.main`
-	margin: 0 auto;
-	max-width: 1024px;
-	padding: 0px 1.0875rem 1.45rem;
-`;
+const Container = styled.main``;
 
 const Navigation = props => (
 	<NavMenu>
