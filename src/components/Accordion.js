@@ -3,7 +3,6 @@ import styled from "styled-components";
 import FaChevronDown from "react-icons/lib/fa/chevron-down";
 import FaChevronUp from "react-icons/lib/fa/chevron-up";
 import { VelocityTransitionGroup } from "velocity-react";
-import "./Accordion.scss";
 
 const Toggle = styled.div``;
 

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import "./StaggeredRowsLayout.scss";
 import { darken } from "polished";
 import Link from "gatsby-link";
 

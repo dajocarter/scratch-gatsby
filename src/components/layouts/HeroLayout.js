@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Link from "gatsby-link";
 import styled from "styled-components";
 import { darken, clearFix } from "polished";
-import "./HeroLayout.scss";
 
 const HeroUnit = styled.section`
 	width: 100vw;
@@ -48,7 +47,17 @@ const Header = styled.h2`
 	margin-top: 0;
 `;
 
-const Blurb = styled.div``;
+const Blurb = styled.div`
+	p {
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+`;
 
 const Button = styled(Link)`
 	background: #3d9970;
