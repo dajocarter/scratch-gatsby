@@ -65,11 +65,7 @@ const ContentContainer = styled.div`
 	}
 `;
 
-const Content = styled.div`
-	@media (min-width: 768px) {
-		flex: 0 0 auto;
-	}
-`;
+const Content = styled.div``;
 
 const Header = styled.h2`
 	margin-top: 0;
