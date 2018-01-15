@@ -1,54 +1,93 @@
 import React, { Component } from "react";
+import styled from "styled-components";
+import { darken } from "polished";
 import Link from "gatsby-link";
 import Img from "gatsby-image";
-import "./CardsLayout.scss";
 
-const CustomCard = props => (
-	<div className="card">
-		{props.data.image ? (
-			<Img
-				sizes={props.data.image.localFile.childImageSharp.sizes}
-				className="card-img-top"
-			/>
-		) : null}
-		<div className="card-block">
-			<h4 className="card-title">
-				{props.data.add_button ? (
-					<Link
-						to={
-							props.data.internal_link
-								? props.data.button_internal_link
-								: props.data.button_external_link
-						}
-						target={props.data.internal_link ? `` : `_blank`}
-					>
-						props.data.header
-					</Link>
-				) : (
-					props.data.header
-				)}
-			</h4>
-			<div
-				className="card-text"
-				dangerouslySetInnerHTML={{ __html: props.data.blurb }}
-			/>
-		</div>
-	</div>
-);
+const Cards = styled.section`
+	margin: 0 auto 2rem;
+	max-width: 1024px;
+`;
 
-class CardsLayout extends Component {
-	render() {
-		const layout = this.props.layout;
-		return (
-			<section className="cards">
-				<div className="wrap">
-					{layout.cards.map((card, index) => (
-						<CustomCard key={`card-${index}`} data={card} />
-					))}
-				</div>
-			</section>
-		);
+const Wrap = styled.div`
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-content: center;
+`;
+
+const Card = styled.div`
+	flex: 0 0 22.5%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+	border: 1px solid rgba(0, 0, 0, 0.125);
+	border-radius: 0.25rem;
+`;
+
+const CardImg = styled(Img)`
+	border-top-right-radius: calc(0.25rem - 1px);
+	border-top-left-radius: calc(0.25rem - 1px);
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+`;
+
+const CardBlock = styled.div`
+	flex: 1 1 auto;
+	padding: 1rem;
+`;
+
+const CardTitle = styled.h4`
+	margin-bottom: 0.75rem;
+`;
+
+const CardText = styled.div``;
+
+const Blurb = styled.div``;
+
+const Button = styled(Link)`
+	background: #3d9970;
+	border-radius: 0.125rem;
+	color: #fff;
+	display: inline-block;
+	margin-top: 1rem;
+	padding: 1rem;
+	text-decoration: none;
+
+	&:hover {
+		background: ${darken(0.05, `#3d9970`)};
 	}
-}
+`;
+
+const CardsLayout = props => (
+	<Cards>
+		<Wrap>
+			{props.layout.cards.map((card, index) => (
+				<Card key={`card-${index}`}>
+					{card.image ? (
+						<CardImg sizes={card.image.localFile.childImageSharp.sizes} />
+					) : null}
+					<CardBlock>
+						<CardTitle>{card.header}</CardTitle>
+						<CardText>
+							<Blurb dangerouslySetInnerHTML={{ __html: card.blurb }} />
+							{card.add_button ? (
+								<Button
+									to={card.button_link.url}
+									target={card.button_link.target}
+								>
+									{card.button_link.title}
+								</Button>
+							) : null}
+						</CardText>
+					</CardBlock>
+				</Card>
+			))}
+		</Wrap>
+	</Cards>
+);
 
 export default CardsLayout;

@@ -83,7 +83,11 @@ export const pageQuery = graphql`
 							header
 							blurb
 							add_button
-
+							button_link {
+								title
+								target
+								url
+							}
 							image {
 								localFile {
 									childImageSharp {

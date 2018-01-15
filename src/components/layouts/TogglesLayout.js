@@ -3,7 +3,8 @@ import styled from "styled-components";
 import Accordion from "../Accordion";
 
 const Toggles = styled.section`
-	margin-bottom: 2rem;
+	margin: 0 auto 2rem;
+	max-width: 1024px;
 `;
 
 const Header = styled.h2`
