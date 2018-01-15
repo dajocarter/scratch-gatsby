@@ -13,11 +13,7 @@ import TogglesLayout from "../components/layouts/TogglesLayout";
 import VideoLayout from "../components/layouts/VideoLayout";
 import WysiwygsLayout from "../components/layouts/WysiwygsLayout";
 
-const Article = styled.article`
-	margin: 0 auto;
-	max-width: 1024px;
-	padding: 0px 1.0875rem 1.45rem;
-`;
+const Article = styled.article``;
 
 const PageLayoutsTemplate = props => (
 	<Article className={postClasses(props.data.wordpressPage)}>
