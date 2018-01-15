@@ -1,8 +1,22 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import styled from "styled-components";
+import Link from "gatsby-link";
+import Img from "gatsby-image";
 import Slider from "react-slick";
-import "./Slick.scss";
 
+const LogoSlider = styled.div`
+	height: 200px;
+`;
+
+const Slide = styled.div`
+	height: 200px;
+`;
+
+const SlideImg = styled(Img)`
+	padding: 0 10px;
+	width: 100%;
+`;
 class LogoSlick extends Component {
 	render() {
 		const settings = {
@@ -40,21 +54,27 @@ class LogoSlick extends Component {
 		};
 
 		return (
-			<Slider className="logo-display slide-logos" {...settings}>
-				{this.props.logos.map((image, index) => (
-					<div key={`logo-${index}`} className="logo-img">
-						{image.link ? (
-							<Link to={image.link.url}>
-								<img
-									src={image.logo.localFile.childImageSharp.resolutions.src}
+			<LogoSlider>
+				<Slider {...settings}>
+					{this.props.logos.map((image, index) => (
+						<Slide key={`logo-${index}`}>
+							{image.link ? (
+								<Link to={image.link.url}>
+									<SlideImg
+										resolutions={
+											image.logo.localFile.childImageSharp.resolutions
+										}
+									/>
+								</Link>
+							) : (
+								<SlideImg
+									resolutions={image.logo.localFile.childImageSharp.resolutions}
 								/>
-							</Link>
-						) : (
-							<img src={image.logo.localFile.childImageSharp.resolutions.src} />
-						)}
-					</div>
-				))}
-			</Slider>
+							)}
+						</Slide>
+					))}
+				</Slider>
+			</LogoSlider>
 		);
 	}
 }
