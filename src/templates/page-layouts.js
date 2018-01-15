@@ -80,7 +80,7 @@ export const pageQuery = graphql`
 							header
 							blurb
 							add_button
-							button_text
+
 							image {
 								localFile {
 									childImageSharp {
@@ -109,7 +109,11 @@ export const pageQuery = graphql`
 						header
 						blurb
 						add_button
-						button_text
+						button_link {
+							title
+							target
+							url
+						}
 					}
 					... on WordPressAcf_flexible_columns {
 						number_of_columns
@@ -136,7 +140,6 @@ export const pageQuery = graphql`
 								url
 								target
 							}
-							button_text
 						}
 					}
 					... on WordPressAcf_image_blocks {
@@ -158,7 +161,6 @@ export const pageQuery = graphql`
 							animate
 							animation
 							add_button
-							button_text
 						}
 					}
 					... on WordPressAcf_logos_section {
@@ -205,7 +207,6 @@ export const pageQuery = graphql`
 						header
 						content
 						add_button
-						button_text
 					}
 					... on WordPressAcf_slider {
 						slides {
@@ -221,7 +222,6 @@ export const pageQuery = graphql`
 							header
 							blurb
 							add_button
-							button_text
 						}
 					}
 					... on WordPressAcf_staggered_images_with_text {
@@ -243,7 +243,6 @@ export const pageQuery = graphql`
 								target
 								url
 							}
-							button_text
 						}
 					}
 					... on WordPressAcf_toggles {
@@ -278,7 +277,6 @@ export const pageQuery = graphql`
 						header
 						blurb
 						add_button
-						button_text
 					}
 					... on WordPressAcf_wysiwygs {
 						header
