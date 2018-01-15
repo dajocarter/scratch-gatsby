@@ -3,9 +3,18 @@ import PropTypes from "prop-types";
 import Link from "gatsby-link";
 import Helmet from "react-helmet";
 import logo from "./site-logo.svg";
-import styled from "styled-components";
+import styled, { injectGlobal } from "styled-components";
+import styledNormalize from "styled-normalize";
 import { clearFix, darken } from "polished";
 import "./index.scss";
+
+injectGlobal`
+	${styledNormalize};
+	
+	body {
+		font-family: "Lato", sans-serif;
+	}
+`;
 
 const HeaderContainer = styled.header`
 	background-color: #3d9970;
