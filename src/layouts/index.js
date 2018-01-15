@@ -6,7 +6,7 @@ import logo from "./site-logo.svg";
 import styled, { injectGlobal } from "styled-components";
 import styledNormalize from "styled-normalize";
 import { clearFix, darken } from "polished";
-import "./index.scss";
+import "./grid.scss";
 
 injectGlobal`
 	${styledNormalize};
