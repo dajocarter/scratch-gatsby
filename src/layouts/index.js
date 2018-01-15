@@ -4,12 +4,11 @@ import Link from "gatsby-link";
 import Helmet from "react-helmet";
 import logo from "./site-logo.svg";
 import styled, { injectGlobal } from "styled-components";
-import styledNormalize from "styled-normalize";
-import { clearFix, darken } from "polished";
+import { clearFix, darken, normalize } from "polished";
 import "./grid.scss";
 
 injectGlobal`
-	${styledNormalize};
+	${normalize()};
 	
 	body {
 		font-family: "Lato", sans-serif;

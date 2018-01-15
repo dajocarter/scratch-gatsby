@@ -21,7 +21,6 @@
     "react-slick": "^0.16.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^2.4.0",
-    "styled-normalize": "^2.3.0",
     "velocity-react": "^1.3.3"
   },
   "keywords": [

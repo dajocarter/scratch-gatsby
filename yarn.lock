@@ -8663,10 +8663,6 @@ styled-components@^2.4.0:
     stylis "^3.4.0"
     supports-color "^3.2.3"
 
-styled-normalize@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/styled-normalize/-/styled-normalize-2.3.0.tgz#0ab118085955d37ec03c5c418032bfd68ad649d6"
-
 stylis@^3.4.0:
   version "3.4.8"
   resolved "https://registry.yarnpkg.com/stylis/-/stylis-3.4.8.tgz#94380babbcd4c75726215794ca985b38ec96d1a3"
