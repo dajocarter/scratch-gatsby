@@ -16,277 +16,277 @@ import WysiwygsLayout from "../components/layouts/WysiwygsLayout";
 const Article = styled.article``;
 
 const PageLayoutsTemplate = props => (
-	<Article className={postClasses(props.data.wordpressPage)}>
-		{props.data.wordpressPage.acf.layout_page.map((layout, index) => {
-			switch (layout.__typename) {
-				case "WordPressAcf_cards":
-					return <CardsLayout layout={layout} key={index} />;
-					break;
-				case "WordPressAcf_hero_unit":
-					return <HeroLayout layout={layout} key={index} />;
-					break;
-				case "WordPressAcf_flexible_columns":
-					return <ColumnsLayout layout={layout} key={index} />;
-					break;
-				case "WordPressAcf_image_blocks":
-					return <ImageBlocksLayout layout={layout} key={index} />;
-					break;
-				case "WordPressAcf_logos_section":
-					return <LogosLayout layout={layout} key={index} />;
-					break;
-				case "WordPressAcf_multiple_images_with_text":
-					return <ImagesWithTextLayout layout={layout} key={index} />;
-					break;
-				case "WordPressAcf_slider":
-					return <SliderLayout layout={layout} key={index} />;
-					break;
-				case "WordPressAcf_staggered_images_with_text":
-					return <StaggeredRowsLayout layout={layout} key={index} />;
-					break;
-				case "WordPressAcf_toggles":
-					return <TogglesLayout layout={layout} key={index} />;
-					break;
-				case "WordPressAcf_video":
-					return <VideoLayout layout={layout} key={index} />;
-					break;
-				case "WordPressAcf_wysiwygs":
-					return <WysiwygsLayout layout={layout} key={index} />;
-					break;
-				default:
-					return;
-					break;
-			}
-		})}
-	</Article>
+  <Article className={postClasses(props.data.wordpressPage)}>
+    {props.data.wordpressPage.acf.layout_page.map((layout, index) => {
+      switch (layout.__typename) {
+        case "WordPressAcf_cards":
+          return <CardsLayout layout={layout} key={index} />;
+          break;
+        case "WordPressAcf_hero_unit":
+          return <HeroLayout layout={layout} key={index} />;
+          break;
+        case "WordPressAcf_flexible_columns":
+          return <ColumnsLayout layout={layout} key={index} />;
+          break;
+        case "WordPressAcf_image_blocks":
+          return <ImageBlocksLayout layout={layout} key={index} />;
+          break;
+        case "WordPressAcf_logos_section":
+          return <LogosLayout layout={layout} key={index} />;
+          break;
+        case "WordPressAcf_multiple_images_with_text":
+          return <ImagesWithTextLayout layout={layout} key={index} />;
+          break;
+        case "WordPressAcf_slider":
+          return <SliderLayout layout={layout} key={index} />;
+          break;
+        case "WordPressAcf_staggered_images_with_text":
+          return <StaggeredRowsLayout layout={layout} key={index} />;
+          break;
+        case "WordPressAcf_toggles":
+          return <TogglesLayout layout={layout} key={index} />;
+          break;
+        case "WordPressAcf_video":
+          return <VideoLayout layout={layout} key={index} />;
+          break;
+        case "WordPressAcf_wysiwygs":
+          return <WysiwygsLayout layout={layout} key={index} />;
+          break;
+        default:
+          return;
+          break;
+      }
+    })}
+  </Article>
 );
 
 export default PageLayoutsTemplate;
 
 export const pageQuery = graphql`
-	query currentLayoutQuery($id: Int!) {
-		wordpressPage(wordpress_id: { eq: $id }) {
-			wordpress_id
-			title
-			content
-			slug
-			type
-			status
-			acf {
-				layout_page {
-					__typename
-					... on WordPressAcf_cards {
-						number_of_columns
-						wordpress_2_col_offset
-						wordpress_3_col_offset
-						flexible_columns
-						cards {
-							header
-							blurb
-							add_button
-							button_link {
-								title
-								target
-								url
-							}
-							image {
-								localFile {
-									childImageSharp {
-										sizes(maxWidth: 960) {
-											...GatsbyImageSharpSizes_withWebp
-										}
-									}
-								}
-							}
-						}
-					}
-					... on WordPressAcf_hero_unit {
-						background_image {
-							localFile {
-								childImageSharp {
-									original {
-										src
-									}
-								}
-							}
-						}
-						bg_image_pos_x
-						bg_image_pos_y
-						text_align
-						text_margin
-						header
-						blurb
-						add_button
-						button_link {
-							title
-							target
-							url
-						}
-					}
-					... on WordPressAcf_flexible_columns {
-						number_of_columns
-						wordpress_2_col_offset
-						wordpress_3_col_offset
-						flexible_columns
-						header
-						blurb
-						columns {
-							image {
-								localFile {
-									childImageSharp {
-										resize(width: 350) {
-											src
-										}
-									}
-								}
-							}
-							header
-							blurb
-							add_button
-							button_link {
-								title
-								url
-								target
-							}
-						}
-					}
-					... on WordPressAcf_image_blocks {
-						offset
-						post_animate
-						post_animation
-						image_blocks {
-							background_image {
-								localFile {
-									childImageSharp {
-										original {
-											src
-										}
-									}
-								}
-							}
-							header
-							blurb
-							animate
-							animation
-							add_button
-						}
-					}
-					... on WordPressAcf_logos_section {
-						header
-						logo_display
-						logos {
-							logo {
-								localFile {
-									childImageSharp {
-										resolutions(width: 150) {
-											...GatsbyImageSharpResolutions_withWebp
-										}
-									}
-								}
-							}
-							link
-						}
-					}
-					... on WordPressAcf_multiple_images_with_text {
-						image_side
-						images {
-							localFile {
-								childImageSharp {
-									resolutions(width: 400) {
-										aspectRatio
-										width
-										height
-										src
-										srcSet
-										srcWebp
-										srcSetWebp
-										originalName
-									}
-								}
-							}
-						}
-						header
-						content
-						add_button
-					}
-					... on WordPressAcf_slider {
-						slides {
-							background {
-								localFile {
-									childImageSharp {
-										original {
-											src
-										}
-									}
-								}
-							}
-							header
-							blurb
-							add_button
-						}
-					}
-					... on WordPressAcf_staggered_images_with_text {
-						rows {
-							image {
-								localFile {
-									childImageSharp {
-										resize(width: 550) {
-											src
-										}
-									}
-								}
-							}
-							header
-							blurb
-							add_button
-							button_link {
-								title
-								target
-								url
-							}
-						}
-					}
-					... on WordPressAcf_toggles {
-						header
-						blurb
-						toggles {
-							toggle_header
-							toggle_content
-						}
-					}
-					... on WordPressAcf_video {
-						video_fallback_image {
-							localFile {
-								childImageSharp {
-									resolutions(width: 400) {
-										aspectRatio
-										width
-										height
-										src
-										srcSet
-										srcWebp
-										srcSetWebp
-										originalName
-									}
-								}
-							}
-						}
-						video_attributes
-						video_mp4_file
-						video_webm_file
-						video_ogv_file
-						header
-						blurb
-						add_button
-					}
-					... on WordPressAcf_wysiwygs {
-						header
-						offset
-						wysiwygs {
-							wysiwyg
-						}
-					}
-				}
-			}
-		}
-	}
+  query currentLayoutQuery($id: Int!) {
+    wordpressPage(wordpress_id: { eq: $id }) {
+      wordpress_id
+      title
+      content
+      slug
+      type
+      status
+      acf {
+        layout_page {
+          __typename
+          ... on WordPressAcf_cards {
+            number_of_columns
+            wordpress_2_col_offset
+            wordpress_3_col_offset
+            flexible_columns
+            cards {
+              header
+              blurb
+              add_button
+              button_link {
+                title
+                target
+                url
+              }
+              image {
+                localFile {
+                  childImageSharp {
+                    sizes(maxWidth: 960) {
+                      ...GatsbyImageSharpSizes_withWebp
+                    }
+                  }
+                }
+              }
+            }
+          }
+          ... on WordPressAcf_hero_unit {
+            background_image {
+              localFile {
+                childImageSharp {
+                  original {
+                    src
+                  }
+                }
+              }
+            }
+            bg_image_pos_x
+            bg_image_pos_y
+            text_align
+            text_margin
+            header
+            blurb
+            add_button
+            button_link {
+              title
+              target
+              url
+            }
+          }
+          ... on WordPressAcf_flexible_columns {
+            number_of_columns
+            wordpress_2_col_offset
+            wordpress_3_col_offset
+            flexible_columns
+            header
+            blurb
+            columns {
+              image {
+                localFile {
+                  childImageSharp {
+                    resize(width: 450) {
+                      src
+                    }
+                  }
+                }
+              }
+              header
+              blurb
+              add_button
+              button_link {
+                title
+                url
+                target
+              }
+            }
+          }
+          ... on WordPressAcf_image_blocks {
+            offset
+            post_animate
+            post_animation
+            image_blocks {
+              background_image {
+                localFile {
+                  childImageSharp {
+                    original {
+                      src
+                    }
+                  }
+                }
+              }
+              header
+              blurb
+              animate
+              animation
+              add_button
+            }
+          }
+          ... on WordPressAcf_logos_section {
+            header
+            logo_display
+            logos {
+              logo {
+                localFile {
+                  childImageSharp {
+                    resolutions(width: 150) {
+                      ...GatsbyImageSharpResolutions_withWebp
+                    }
+                  }
+                }
+              }
+              link
+            }
+          }
+          ... on WordPressAcf_multiple_images_with_text {
+            image_side
+            images {
+              localFile {
+                childImageSharp {
+                  resolutions(width: 400) {
+                    aspectRatio
+                    width
+                    height
+                    src
+                    srcSet
+                    srcWebp
+                    srcSetWebp
+                    originalName
+                  }
+                }
+              }
+            }
+            header
+            content
+            add_button
+          }
+          ... on WordPressAcf_slider {
+            slides {
+              background {
+                localFile {
+                  childImageSharp {
+                    original {
+                      src
+                    }
+                  }
+                }
+              }
+              header
+              blurb
+              add_button
+            }
+          }
+          ... on WordPressAcf_staggered_images_with_text {
+            rows {
+              image {
+                localFile {
+                  childImageSharp {
+                    resize(width: 550) {
+                      src
+                    }
+                  }
+                }
+              }
+              header
+              blurb
+              add_button
+              button_link {
+                title
+                target
+                url
+              }
+            }
+          }
+          ... on WordPressAcf_toggles {
+            header
+            blurb
+            toggles {
+              toggle_header
+              toggle_content
+            }
+          }
+          ... on WordPressAcf_video {
+            video_fallback_image {
+              localFile {
+                childImageSharp {
+                  resolutions(width: 400) {
+                    aspectRatio
+                    width
+                    height
+                    src
+                    srcSet
+                    srcWebp
+                    srcSetWebp
+                    originalName
+                  }
+                }
+              }
+            }
+            video_attributes
+            video_mp4_file
+            video_webm_file
+            video_ogv_file
+            header
+            blurb
+            add_button
+          }
+          ... on WordPressAcf_wysiwygs {
+            header
+            offset
+            wysiwygs {
+              wysiwyg
+            }
+          }
+        }
+      }
+    }
+  }
 `;
