@@ -1,54 +1,69 @@
-import React, { Component } from "react";
-import "./WysiwygsLayout.scss";
-class WysiwygsLayout extends Component {
-  renderHeader() {
-    return this.props.layout.header ? (
-      <h2
-        className="layout-header"
-        dangerouslySetInnerHTML={{ __html: this.props.layout.header }}
-      />
-    ) : (
-      ""
-    );
+import React from "react";
+import styled from "styled-components";
+
+const Wysiwygs = styled.section`
+  margin-bottom: 2rem;
+`;
+
+const Wrap = styled.div`
+  margin: 0 auto;
+  max-width: 1024px;
+  padding: 0 1rem;
+`;
+
+const Header = styled.h2`
+  text-align: center;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+`;
+
+const Blurb = styled.div`
+  flex: 1 1 100%;
+  @media (min-width: 767px) {
+    flex: ${props => {
+      if (props.offset === "2 to 1") {
+        if (props.order % 2) {
+          return `1 0 30%`;
+        } else {
+          return `1 0 60%`;
+        }
+      } else if (props.offset === "1 to 2") {
+        if (props.order % 2) {
+          return `1 0 60%`;
+        } else {
+          return `1 0 30%`;
+        }
+      } else {
+        return `0 0 45%`;
+      }
+    }};
+    padding-left: ${props => (props.order % 2 ? `2rem` : `1rem`)};
   }
+`;
 
-  renderWysiwygs() {
-    let containerClass = "flex-container";
-    switch (this.props.layout.offset) {
-      case "2 to 1":
-        containerClass += " thirds-1-2";
-        break;
-
-      case "1 to 2":
-        containerClass += " thirds-2-1";
-        break;
-    }
-    return (
-      <div className={containerClass}>
-        {this.props.layout.wysiwygs.map((column, index) => {
+const WysiwygsLayout = props => (
+  <Wysiwygs>
+    <Wrap>
+      <Header>{props.layout.header}</Header>
+      <Container>
+        {props.layout.wysiwygs.map((column, index) => {
           return (
-            <div
-              className="flex-column"
+            <Blurb
               key={index}
+              offset={props.layout.offset}
+              order={index}
               dangerouslySetInnerHTML={{ __html: column.wysiwyg }}
             />
           );
         })}
-      </div>
-    );
-  }
-
-  render() {
-    const layout = this.props.layout;
-    return (
-      <section className="wysiwygs">
-        <div className="wrap">
-          {this.renderHeader()}
-          {this.renderWysiwygs()}
-        </div>
-      </section>
-    );
-  }
-}
+      </Container>
+    </Wrap>
+  </Wysiwygs>
+);
 
 export default WysiwygsLayout;
