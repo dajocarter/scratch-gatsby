@@ -23,26 +23,19 @@ const Container = styled.div`
 `;
 
 const Blurb = styled.div`
+  box-sizing: border-box;
   flex: 1 1 100%;
   @media (min-width: 767px) {
     flex: ${props => {
       if (props.offset === "2 to 1") {
-        if (props.order % 2) {
-          return `1 0 30%`;
-        } else {
-          return `1 0 60%`;
-        }
+        return props.order % 2 ? `1 0 33%` : `1 0 66%`;
       } else if (props.offset === "1 to 2") {
-        if (props.order % 2) {
-          return `1 0 60%`;
-        } else {
-          return `1 0 30%`;
-        }
+        return props.order % 2 ? `1 0 66%` : `1 0 33%`;
       } else {
-        return `0 0 45%`;
+        return `0 0 50%`;
       }
     }};
-    padding-left: ${props => (props.order % 2 ? `2rem` : `1rem`)};
+    padding-left: ${props => (props.order % 2 ? `2rem` : `0rem`)};
   }
 `;
 
