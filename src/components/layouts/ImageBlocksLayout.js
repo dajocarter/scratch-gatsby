@@ -2,19 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import {
   LayoutSection,
-  Wrap,
+  FlexWrap,
   Overlay,
   LayoutHeader,
   LayoutBlurb,
   Button
 } from "../Styles";
-
-const TilesContainer = Wrap.extend`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: center;
-`;
 
 const Tile = styled.div`
   background-color: #3d9970;
@@ -59,7 +52,7 @@ const Content = styled.div`
 
 const ImageBlocksLayout = props => (
   <LayoutSection>
-    <TilesContainer>
+    <FlexWrap>
       {props.layout.image_blocks.map((block, index) => (
         <Tile
           key={index}
@@ -80,7 +73,7 @@ const ImageBlocksLayout = props => (
           </Content>
         </Tile>
       ))}
-    </TilesContainer>
+    </FlexWrap>
   </LayoutSection>
 );
 

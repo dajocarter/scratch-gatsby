@@ -3,15 +3,14 @@ import styled from "styled-components";
 import {
   LayoutSection,
   Wrap,
+  FlexWrap,
   LayoutHeader,
   LayoutBlurb,
   Button,
   Circle
 } from "../Styles";
 
-const Container = styled.div`
-  display: flex;
-  flex-flow: row wrap;
+const ColumnsContainer = FlexWrap.extend`
   justify-content: flex-start;
   align-items: flex-start;
 `;
@@ -61,32 +60,32 @@ const ColumnsLayout = props => (
     <Wrap>
       <LayoutHeader>{props.layout.header}</LayoutHeader>
       <LayoutBlurb dangerouslySetInnerHTML={{ __html: props.layout.blurb }} />
-      <Container>
-        {props.layout.columns.map((column, index) => (
-          <Column
-            key={`column-${index}`}
-            numOfColumns={parseInt(props.layout.number_of_columns, 10)}
-            columnCount={props.layout.columns.length}
-            columnIndex={index}
-            twoColOffset={props.layout.wordpress_2_col_offset}
-            threeColOffset={props.layout.wordpress_3_col_offset}
-            flexible={props.layout.flexible_columns}
-          >
-            <Circle url={column.image.localFile.childImageSharp.resize.src} />
-            <ColumnHeader>{column.header}</ColumnHeader>
-            <ColumnBlurb dangerouslySetInnerHTML={{ __html: column.blurb }} />
-            {column.add_button ? (
-              <Button
-                to={column.button_link.url}
-                target={column.button_link.target}
-              >
-                {column.button_link.title}
-              </Button>
-            ) : null}
-          </Column>
-        ))}
-      </Container>
     </Wrap>
+    <ColumnsContainer>
+      {props.layout.columns.map((column, index) => (
+        <Column
+          key={`column-${index}`}
+          numOfColumns={parseInt(props.layout.number_of_columns, 10)}
+          columnCount={props.layout.columns.length}
+          columnIndex={index}
+          twoColOffset={props.layout.wordpress_2_col_offset}
+          threeColOffset={props.layout.wordpress_3_col_offset}
+          flexible={props.layout.flexible_columns}
+        >
+          <Circle url={column.image.localFile.childImageSharp.resize.src} />
+          <ColumnHeader>{column.header}</ColumnHeader>
+          <ColumnBlurb dangerouslySetInnerHTML={{ __html: column.blurb }} />
+          {column.add_button ? (
+            <Button
+              to={column.button_link.url}
+              target={column.button_link.target}
+            >
+              {column.button_link.title}
+            </Button>
+          ) : null}
+        </Column>
+      ))}
+    </ColumnsContainer>
   </LayoutSection>
 );
 

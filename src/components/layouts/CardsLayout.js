@@ -1,13 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import Img from "gatsby-image";
-import { LayoutSection, Wrap, Button } from "../Styles";
+import { LayoutSection, FlexWrap, Button } from "../Styles";
 
-const CardsContainer = Wrap.extend`
-  display: flex;
-  flex-flow: row wrap;
+const CardsContainer = FlexWrap.extend`
   justify-content: flex-start;
-  align-content: center;
   border-radius: 0.25rem;
 `;
 

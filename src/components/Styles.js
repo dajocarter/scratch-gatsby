@@ -14,6 +14,13 @@ export const Wrap = styled.div`
   padding: 0 1rem;
 `;
 
+export const FlexWrap = Wrap.extend`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export const Overlay = styled.div`
   position: absolute;
   top: 0;
