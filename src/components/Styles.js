@@ -39,6 +39,18 @@ export const LayoutBlurb = styled.div`
   }
 `;
 
+export const Circle = styled.div`
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  margin: 0 auto;
+  background-color: #3d9970;
+  background-image: ${props => `url(${props.url})`};
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+`;
+
 export const Button = styled(Link)`
   background: #3d9970;
   border-radius: 0.125rem;
