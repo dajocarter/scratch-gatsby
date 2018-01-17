@@ -14,7 +14,10 @@ export const Wrap = styled.div`
   padding: 0 1rem;
 `;
 
-export const FlexWrap = Wrap.extend`
+export const FlexWrap = styled.div`
+  margin: 0 auto;
+  max-width: 1024px;
+  padding: 0 1rem;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
