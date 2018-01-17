@@ -1,28 +1,8 @@
 import React from "react";
+import { LayoutSection, Wrap, LayoutHeader, FlexWrap } from "../Styles";
 import styled from "styled-components";
 
-const Wysiwygs = styled.section`
-  margin-bottom: 2rem;
-`;
-
-const Wrap = styled.div`
-  margin: 0 auto;
-  max-width: 1024px;
-  padding: 0 1rem;
-`;
-
-const Header = styled.h2`
-  text-align: center;
-`;
-
-const Container = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-`;
-
-const Blurb = styled.div`
+const Wysiwyg = styled.div`
   box-sizing: border-box;
   flex: 1 1 100%;
   @media (min-width: 767px) {
@@ -40,23 +20,23 @@ const Blurb = styled.div`
 `;
 
 const WysiwygsLayout = props => (
-  <Wysiwygs>
+  <LayoutSection>
     <Wrap>
-      <Header>{props.layout.header}</Header>
-      <Container>
-        {props.layout.wysiwygs.map((column, index) => {
-          return (
-            <Blurb
-              key={index}
-              offset={props.layout.offset}
-              order={index}
-              dangerouslySetInnerHTML={{ __html: column.wysiwyg }}
-            />
-          );
-        })}
-      </Container>
+      <LayoutHeader>{props.layout.header}</LayoutHeader>
     </Wrap>
-  </Wysiwygs>
+    <FlexWrap>
+      {props.layout.wysiwygs.map((column, index) => {
+        return (
+          <Wysiwyg
+            key={index}
+            offset={props.layout.offset}
+            order={index}
+            dangerouslySetInnerHTML={{ __html: column.wysiwyg }}
+          />
+        );
+      })}
+    </FlexWrap>
+  </LayoutSection>
 );
 
 export default WysiwygsLayout;
