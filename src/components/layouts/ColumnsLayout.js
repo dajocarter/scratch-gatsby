@@ -65,9 +65,8 @@ const ColumnsLayout = props => (
       {props.layout.columns.map((column, index) => (
         <Column
           key={`column-${index}`}
-          numOfColumns={parseInt(props.layout.number_of_columns, 10)}
-          columnCount={props.layout.columns.length}
           columnIndex={index}
+          numOfColumns={parseInt(props.layout.number_of_columns, 10)}
           twoColOffset={props.layout.wordpress_2_col_offset}
           threeColOffset={props.layout.wordpress_3_col_offset}
           flexible={props.layout.flexible_columns}
