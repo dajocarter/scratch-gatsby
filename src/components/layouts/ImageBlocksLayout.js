@@ -1,18 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-import { clearFix, darken } from "polished";
-import Link from "gatsby-link";
+import {
+  LayoutSection,
+  Wrap,
+  Overlay,
+  LayoutHeader,
+  LayoutBlurb,
+  Button
+} from "../Styles";
 
-const ImageBlocks = styled.section`
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
-`;
-
-const Wrap = styled.div`
-  ${clearFix()};
-  margin: 0 auto;
-  max-width: 1024px;
-  padding: 0 1rem;
+const TilesContainer = Wrap.extend`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -48,15 +45,6 @@ const Tile = styled.div`
   }
 `;
 
-const Overlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.25);
-`;
-
 const Content = styled.div`
   color: #fff;
   padding: 60px 40px;
@@ -69,39 +57,9 @@ const Content = styled.div`
   }
 `;
 
-const Header = styled.h2`
-  margin-top: 0;
-`;
-
-const Blurb = styled.div`
-  p {
-    &:first-child {
-      margin-top: 0;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-`;
-
-const Button = styled(Link)`
-  background: #3d9970;
-  border-radius: 0.125rem;
-  color: #fff;
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 1rem;
-  text-decoration: none;
-
-  &:hover {
-    background: ${darken(0.05, `#3d9970`)};
-  }
-`;
-
 const ImageBlocksLayout = props => (
-  <ImageBlocks>
-    <Wrap>
+  <LayoutSection>
+    <TilesContainer>
       {props.layout.image_blocks.map((block, index) => (
         <Tile
           key={index}
@@ -109,8 +67,8 @@ const ImageBlocksLayout = props => (
         >
           <Overlay />
           <Content>
-            <Header>{block.header}</Header>
-            <Blurb dangerouslySetInnerHTML={{ __html: block.blurb }} />
+            <LayoutHeader>{block.header}</LayoutHeader>
+            <LayoutBlurb dangerouslySetInnerHTML={{ __html: block.blurb }} />
             {block.add_button ? (
               <Button
                 to={block.button_link.url}
@@ -122,8 +80,8 @@ const ImageBlocksLayout = props => (
           </Content>
         </Tile>
       ))}
-    </Wrap>
-  </ImageBlocks>
+    </TilesContainer>
+  </LayoutSection>
 );
 
 export default ImageBlocksLayout;
