@@ -1,206 +1,202 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import {
+  LayoutSection,
+  Wrap,
+  Overlay,
+  LayoutHeader,
+  LayoutBlurb,
+  Button
+} from "../Styles";
 import FaChevronLeft from "react-icons/lib/fa/chevron-left";
 import FaChevronRight from "react-icons/lib/fa/chevron-right";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const SliderSection = styled.section`
-	margin: 0 auto 2rem;
-	max-width: 1024px;
-	.slick-slider {
-		&,
-		.slick-slide {
-			height: 350px;
-			overflow: hidden;
+const SliderSection = LayoutSection.extend`
+  .slick-slider {
+    &,
+    .slick-slide {
+      height: 350px;
+      overflow: hidden;
 
-			&:not(.slide-logos) {
-				@media (min-width: 767px) {
-					height: 500px;
-				}
-			}
-		}
+      &:not(.slide-logos) {
+        @media (min-width: 767px) {
+          height: 500px;
+        }
+      }
+    }
 
-		.slick-arrow {
-			background-color: transparent;
-			height: auto;
-			padding: 0;
-			width: auto;
-			z-index: 1;
-			color: white;
-			font-size: 2rem;
-			opacity: 0.75;
+    .slick-arrow {
+      background-color: transparent;
+      height: auto;
+      padding: 0;
+      width: auto;
+      z-index: 1;
+      color: white;
+      font-size: 2rem;
+      opacity: 0.75;
 
-			&.slick-prev {
-				left: 25px;
-			}
+      &.slick-prev {
+        left: 25px;
+      }
 
-			&.slick-next {
-				right: 25px;
-			}
+      &.slick-next {
+        right: 25px;
+      }
 
-			&:before {
-				content: "";
-			}
+      &:before {
+        content: "";
+      }
 
-			&:hover,
-			&:focus {
-				outline: none;
-				opacity: 1;
-			}
+      &:hover,
+      &:focus {
+        outline: none;
+        opacity: 1;
+      }
 
-			.sr-only {
-				border: 0;
-				clip: rect(1px, 1px, 1px, 1px);
-				clip-path: inset(50%);
-				height: 1px;
-				margin: -1px;
-				overflow: hidden;
-				padding: 0;
-				position: absolute !important;
-				width: 1px;
-				word-wrap: normal !important;
-			}
-		}
+      .sr-only {
+        border: 0;
+        clip: rect(1px, 1px, 1px, 1px);
+        clip-path: inset(50%);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute !important;
+        width: 1px;
+        word-wrap: normal !important;
+      }
+    }
 
-		&.slick-dotted {
-			margin-bottom: 0;
-		}
+    &.slick-dotted {
+      margin-bottom: 0;
+    }
 
-		.slick-dots {
-			bottom: 5%;
-			line-height: 0;
+    .slick-dots {
+      bottom: 5%;
+      line-height: 0;
 
-			li {
-				height: 15px;
-				width: 15px;
-			}
+      li {
+        height: 15px;
+        width: 15px;
+      }
 
-			.slick-active {
-				button {
-					&::before {
-						color: white;
-					}
-				}
-			}
+      .slick-active {
+        button {
+          &::before {
+            color: white;
+          }
+        }
+      }
 
-			button {
-				background-color: transparent;
-				height: 15px;
-				padding: 0;
-				width: 15px;
+      button {
+        background-color: transparent;
+        height: 15px;
+        padding: 0;
+        width: 15px;
 
-				&::before {
-					color: white;
-					font-size: 15px;
-					height: 15px;
-					line-height: 17px;
-					width: 15px;
-				}
-			}
-		}
-	}
+        &::before {
+          color: white;
+          font-size: 15px;
+          height: 15px;
+          line-height: 17px;
+          width: 15px;
+        }
+      }
+    }
+  }
 
-	.slide-logos {
-		&,
-		.slick-slide {
-			height: 200px;
-		}
-		img {
-			padding: 0 10px;
-			width: 100%;
-		}
-	}
+  .slide-logos {
+    &,
+    .slick-slide {
+      height: 200px;
+    }
+    img {
+      padding: 0 10px;
+      width: 100%;
+    }
+  }
 `;
 
 const Slide = styled.div`
-	background-image: ${props => `url(${props.url})`};
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
+  background-image: ${props => `url(${props.url})`};
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 `;
 
-const Overlay = styled.div`
-	background: rgba(0, 0, 0, 0.25);
-	bottom: 0;
-	left: 0;
-	position: absolute;
-	top: 0;
-	right: 0;
-`;
-
-const Wrap = styled.div`
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	max-width: 960px;
-	width: 100%;
+const ContentContainer = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 960px;
+  width: 100%;
 `;
 
 const SlideText = styled.div`
-	color: white;
-	margin: 0 auto;
-	padding: 1rem 4rem;
-	text-align: center;
+  color: white;
+  margin: 0 auto;
+  padding: 1rem 4rem;
+  text-align: center;
 
-	@media (min-width: 767px) {
-		padding: 1rem 6rem;
-	}
+  @media (min-width: 767px) {
+    padding: 1rem 6rem;
+  }
 `;
 
-const Header = styled.h2``;
+const SliderLayout = props => {
+  const settings = {
+    autoplay: true,
+    autoplaySpeed: 3000,
+    dots: true,
+    arrows: true,
+    prevArrow: (
+      <button type="button">
+        <FaChevronLeft aria-hidden="true" />
+        <span className="sr-only">Previous</span>
+      </button>
+    ),
+    nextArrow: (
+      <button type="button">
+        <span className="sr-only">Next</span>
+        <FaChevronRight aria-hidden="true" />
+      </button>
+    )
+  };
 
-const Blurb = styled.div``;
-class SliderLayout extends Component {
-	render() {
-		const settings = {
-			autoplay: true,
-			autoplaySpeed: 3000,
-			dots: true,
-			arrows: true,
-			prevArrow: (
-				<button type="button">
-					<FaChevronLeft aria-hidden="true" />
-					<span className="sr-only">Previous</span>
-				</button>
-			),
-			nextArrow: (
-				<button type="button">
-					<span className="sr-only">Next</span>
-					<FaChevronRight aria-hidden="true" />
-				</button>
-			)
-		};
-
-		return (
-			<SliderSection>
-				<Slider {...settings}>
-					{this.props.layout.slides.map((slide, index) => (
-						<Slide
-							key={`slide-${index}`}
-							url={slide.background.localFile.childImageSharp.original.src}
-						>
-							<Overlay />
-							<Wrap>
-								<SlideText>
-									<Header>{slide.header}</Header>
-									<Blurb dangerouslySetInnerHTML={{ __html: slide.blurb }} />
-								</SlideText>
-							</Wrap>
-						</Slide>
-					))}
-				</Slider>
-			</SliderSection>
-		);
-	}
-}
+  return (
+    <SliderSection>
+      <Wrap>
+        <Slider {...settings}>
+          {props.layout.slides.map((slide, index) => (
+            <Slide
+              key={`slide-${index}`}
+              url={slide.background.localFile.childImageSharp.original.src}
+            >
+              <Overlay />
+              <ContentContainer>
+                <SlideText>
+                  <LayoutHeader>{slide.header}</LayoutHeader>
+                  <LayoutBlurb
+                    dangerouslySetInnerHTML={{ __html: slide.blurb }}
+                  />
+                </SlideText>
+              </ContentContainer>
+            </Slide>
+          ))}
+        </Slider>
+      </Wrap>
+    </SliderSection>
+  );
+};
 
 SliderLayout.propTypes = {
-	layout: PropTypes.object.isRequired
+  layout: PropTypes.object.isRequired
 };
 
 export default SliderLayout;
