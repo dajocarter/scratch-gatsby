@@ -1,23 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { darken } from "polished";
-import Link from "gatsby-link";
-
-const Columns = styled.section``;
-
-const Wrap = styled.div`
-  margin: 0 auto;
-  max-width: 1024px;
-  padding: 0 1rem;
-`;
-
-const Header = styled.h2`
-  text-align: center;
-`;
-
-const Blurb = styled.div`
-  text-align: center;
-`;
+import {
+  LayoutSection,
+  Wrap,
+  LayoutHeader,
+  LayoutBlurb,
+  Button,
+  Circle
+} from "../Styles";
 
 const Container = styled.div`
   display: flex;
@@ -62,40 +52,15 @@ const Column = styled.div`
   }};
 `;
 
-const Circle = styled.div`
-  height: 200px;
-  width: 200px;
-  border-radius: 50%;
-  margin: 0 auto;
-  background-image: ${props => `url(${props.url})`};
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-`;
-
 const ColumnHeader = styled.h4``;
 
 const ColumnBlurb = styled.div``;
 
-const Button = styled(Link)`
-  background: #3d9970;
-  border-radius: 0.125rem;
-  color: #fff;
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 1rem;
-  text-decoration: none;
-
-  &:hover {
-    background: ${darken(0.05, `#3d9970`)};
-  }
-`;
-
 const ColumnsLayout = props => (
-  <Columns>
+  <LayoutSection>
     <Wrap>
-      <Header>{props.layout.header}</Header>
-      <Blurb dangerouslySetInnerHTML={{ __html: props.layout.blurb }} />
+      <LayoutHeader>{props.layout.header}</LayoutHeader>
+      <LayoutBlurb dangerouslySetInnerHTML={{ __html: props.layout.blurb }} />
       <Container>
         {props.layout.columns.map((column, index) => (
           <Column
@@ -122,7 +87,7 @@ const ColumnsLayout = props => (
         ))}
       </Container>
     </Wrap>
-  </Columns>
+  </LayoutSection>
 );
 
 export default ColumnsLayout;
