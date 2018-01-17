@@ -1,38 +1,21 @@
-import React, { Component } from "react";
-import styled from "styled-components";
+import React from "react";
+import { LayoutSection, Wrap, LayoutHeader, LayoutBlurb } from "../Styles";
 import Accordion from "../Accordion";
 
-const Toggles = styled.section`
-	margin: 0 auto 2rem;
-	max-width: 1024px;
-`;
-
-const Header = styled.h2`
-	text-align: center;
-`;
-
-const Blurb = styled.div`
-	text-align: center;
-`;
-
 const TogglesLayout = props => (
-	<Toggles>
-		{props.layout.header ? (
-			<Header dangerouslySetInnerHTML={{ __html: props.layout.header }} />
-		) : null}
-
-		{props.layout.blurb ? (
-			<Blurb dangerouslySetInnerHTML={{ __html: props.layout.blurb }} />
-		) : null}
-
-		{props.layout.toggles.map((toggle, index) => (
-			<Accordion
-				key={`toggle-${index}`}
-				header={toggle.toggle_header}
-				content={toggle.toggle_content}
-			/>
-		))}
-	</Toggles>
+  <LayoutSection>
+    <Wrap>
+      <LayoutHeader>{props.layout.header}</LayoutHeader>
+      <LayoutBlurb dangerouslySetInnerHTML={{ __html: props.layout.blurb }} />
+      {props.layout.toggles.map((toggle, index) => (
+        <Accordion
+          key={`toggle-${index}`}
+          header={toggle.toggle_header}
+          content={toggle.toggle_content}
+        />
+      ))}
+    </Wrap>
+  </LayoutSection>
 );
 
 export default TogglesLayout;
