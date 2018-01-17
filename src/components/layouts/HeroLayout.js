@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import {
   LayoutSection,
+  BackgroundImage,
   Overlay,
   Wrap,
   LayoutHeader,
@@ -9,12 +10,8 @@ import {
   Button
 } from "../Styles";
 
-const BackgroundImage = styled.div`
-  position: relative;
-  background-image: ${props => `url(${props.url})`};
+const HeroUnit = BackgroundImage.extend`
   background-position: ${props => props.position};
-  background-repeat: no-repeat;
-  background-size: cover;
 `;
 
 const Content = styled.div`
@@ -26,7 +23,7 @@ const Content = styled.div`
 
 const HeroLayout = props => (
   <LayoutSection>
-    <BackgroundImage
+    <HeroUnit
       url={props.layout.background_image.localFile.childImageSharp.original.src}
       position={`${props.layout.bg_image_pos_x} ${props.layout.bg_image_pos_y}`}
     >
@@ -50,7 +47,7 @@ const HeroLayout = props => (
           ) : null}
         </Content>
       </Wrap>
-    </BackgroundImage>
+    </HeroUnit>
   </LayoutSection>
 );
 

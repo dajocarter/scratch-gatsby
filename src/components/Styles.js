@@ -21,6 +21,15 @@ export const FlexWrap = Wrap.extend`
   align-items: center;
 `;
 
+export const BackgroundImage = styled.div`
+  background-color: #3d9970;
+  background-image: ${props => `url(${props.url})`};
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+`;
+
 export const Overlay = styled.div`
   position: absolute;
   top: 0;

@@ -3,19 +3,14 @@ import styled from "styled-components";
 import {
   LayoutSection,
   FlexWrap,
+  BackgroundImage,
   Overlay,
   LayoutHeader,
   LayoutBlurb,
   Button
 } from "../Styles";
 
-const Tile = styled.div`
-  background-color: #3d9970;
-  background-image: ${props => `url(${props.url})`};
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  position: relative;
+const Tile = BackgroundImage.extend`
   display: flex;
   flex-flow: row wrap;
   justify-content: center;

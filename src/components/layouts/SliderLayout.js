@@ -4,6 +4,7 @@ import styled from "styled-components";
 import {
   LayoutSection,
   Wrap,
+  BackgroundImage,
   Overlay,
   LayoutHeader,
   LayoutBlurb,
@@ -121,14 +122,6 @@ const SliderSection = LayoutSection.extend`
   }
 `;
 
-const Slide = styled.div`
-  background-image: ${props => `url(${props.url})`};
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-`;
-
 const ContentContainer = styled.div`
   position: absolute;
   top: 50%;
@@ -174,7 +167,7 @@ const SliderLayout = props => {
       <Wrap>
         <Slider {...settings}>
           {props.layout.slides.map((slide, index) => (
-            <Slide
+            <BackgroundImage
               key={`slide-${index}`}
               url={slide.background.localFile.childImageSharp.original.src}
             >
@@ -187,7 +180,7 @@ const SliderLayout = props => {
                   />
                 </SlideText>
               </ContentContainer>
-            </Slide>
+            </BackgroundImage>
           ))}
         </Slider>
       </Wrap>
