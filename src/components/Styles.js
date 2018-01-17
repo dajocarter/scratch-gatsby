@@ -31,10 +31,12 @@ export const Overlay = styled.div`
 `;
 
 export const LayoutHeader = styled.h2`
+  text-align: center;
   margin-top: 0;
 `;
 
 export const LayoutBlurb = styled.div`
+  text-align: center;
   p {
     &:first-child {
       margin-top: 0;
