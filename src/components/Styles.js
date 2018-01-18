@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { clearFix, darken } from "polished";
+import { darken } from "polished";
 import Link from "gatsby-link";
 
 export const LayoutSection = styled.section`
@@ -8,16 +8,12 @@ export const LayoutSection = styled.section`
 `;
 
 export const Wrap = styled.div`
-  ${clearFix()};
   margin: 0 auto;
   max-width: 1024px;
   padding: 0 1rem;
 `;
 
-export const FlexWrap = styled.div`
-  margin: 0 auto;
-  max-width: 1024px;
-  padding: 0 1rem;
+export const FlexWrap = Wrap.extend`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
