@@ -192,14 +192,8 @@ export const pageQuery = graphql`
               localFile {
                 childImageSharp {
                   resolutions(width: 400) {
-                    aspectRatio
-                    width
-                    height
                     src
                     srcSet
-                    srcWebp
-                    srcSetWebp
-                    originalName
                   }
                 }
               }

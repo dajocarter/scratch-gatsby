@@ -1,65 +1,88 @@
-import React, { Component } from "react";
-import Link from "gatsby-link";
-import Img from "gatsby-image";
-import "./ImagesWithTextLayout.scss";
+import React from "react";
+import {
+  LayoutSection,
+  FlexWrap,
+  LayoutHeader,
+  LayoutBlurb,
+  Button
+} from "../Styles";
+import styled from "styled-components";
 
-class ImagesWithTextLayout extends Component {
-	render() {
-		const layout = this.props.layout;
-		let imageClass = "";
-		switch (layout.images.length) {
-			case 1:
-				imageClass = "full";
-				break;
-			case 2:
-				imageClass = "half";
-				break;
-			case 3:
-				imageClass = "third";
-				break;
-			case 4:
-				imageClass = "quarter";
-		}
-		return (
-			<section className="multiple">
-				<div className="wrap">
-					<div
-						className={
-							layout.image_side ? `images sixcol last` : `images sixcol first`
-						}
-					>
-						<div className="gallery">
-							{layout.images.map((image, index) => (
-								<img
-									key={index}
-									src={image.localFile.childImageSharp.resolutions.src}
-									className={imageClass}
-								/>
-							))}
-						</div>
-					</div>
-					<div
-						className={
-							layout.image_side ? `content sixcol first` : `content sixcol last`
-						}
-					>
-						<h2>{layout.header}</h2>
-						<div dangerouslySetInnerHTML={{ __html: layout.content }} />
-						{layout.add_button ? (
-							<p className="button-wrapper">
-								<Link
-									to={layout.button_link.url}
-									target={layout.button_link.target}
-								>
-									{layout.button_link.title}
-								</Link>
-							</p>
-						) : null}
-					</div>
-				</div>
-			</section>
-		);
-	}
-}
+const Container = styled.div`
+  flex: 0 0 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  order: ${props => (props.imgsOnRight ? 2 : 1)};
+
+  @media (min-width: 768px) {
+    flex: 0 0 50%;
+  }
+`;
+
+const Gallery = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+`;
+
+const GalleryImg = styled.img`
+  flex: 0 0 auto;
+  padding: 0.5rem;
+  width: ${props => {
+    if (props.gallerySize === 1) {
+      return `100%`;
+    } else if (props.gallerySize === 2 || props.gallerySize === 3) {
+      return `45%`;
+    } else if (props.gallerySize === 4) {
+      return `25%`;
+    }
+  }};
+`;
+
+const Content = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ImagesWithTextLayout = props => (
+  <LayoutSection>
+    <FlexWrap>
+      <Container imgsOnRight={props.layout.image_side}>
+        <Gallery>
+          {props.layout.images.map((image, index) => (
+            <GalleryImg
+              key={index}
+              src={image.localFile.childImageSharp.resolutions.src}
+              srcSet={image.localFile.childImageSharp.resolutions.srcSet}
+              gallerySize={props.layout.images.length}
+              imgIndex={index + 1}
+            />
+          ))}
+        </Gallery>
+      </Container>
+      <Container imgsOnRight={!props.layout.image_side}>
+        <Content>
+          <LayoutHeader>{props.layout.header}</LayoutHeader>
+          <LayoutBlurb
+            dangerouslySetInnerHTML={{ __html: props.layout.content }}
+          />
+          {props.layout.add_button ? (
+            <Button
+              to={props.layout.button_link.url}
+              target={props.layout.button_link.target}
+            >
+              {props.layout.button_link.title}
+            </Button>
+          ) : null}
+        </Content>
+      </Container>
+    </FlexWrap>
+  </LayoutSection>
+);
 
 export default ImagesWithTextLayout;
