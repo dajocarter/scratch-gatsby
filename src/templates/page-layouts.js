@@ -5,12 +5,10 @@ import CardsLayout from "../components/layouts/CardsLayout";
 import ColumnsLayout from "../components/layouts/ColumnsLayout";
 import HeroLayout from "../components/layouts/HeroLayout";
 import ImageBlocksLayout from "../components/layouts/ImageBlocksLayout";
-import ImagesWithTextLayout from "../components/layouts/ImagesWithTextLayout";
 import LogosLayout from "../components/layouts/LogosLayout";
 import SliderLayout from "../components/layouts/SliderLayout";
 import StaggeredRowsLayout from "../components/layouts/StaggeredRowsLayout";
 import TogglesLayout from "../components/layouts/TogglesLayout";
-import VideoLayout from "../components/layouts/VideoLayout";
 import WysiwygsLayout from "../components/layouts/WysiwygsLayout";
 
 const Article = styled.article``;
@@ -34,9 +32,6 @@ const PageLayoutsTemplate = props => (
         case "WordPressAcf_logos_section":
           return <LogosLayout layout={layout} key={index} />;
           break;
-        case "WordPressAcf_multiple_images_with_text":
-          return <ImagesWithTextLayout layout={layout} key={index} />;
-          break;
         case "WordPressAcf_slider":
           return <SliderLayout layout={layout} key={index} />;
           break;
@@ -45,9 +40,6 @@ const PageLayoutsTemplate = props => (
           break;
         case "WordPressAcf_toggles":
           return <TogglesLayout layout={layout} key={index} />;
-          break;
-        case "WordPressAcf_video":
-          return <VideoLayout layout={layout} key={index} />;
           break;
         case "WordPressAcf_wysiwygs":
           return <WysiwygsLayout layout={layout} key={index} />;
