@@ -32,17 +32,17 @@ const HeroLayout = props => (
           textAlign={props.layout.text_align}
           textMargin={props.layout.text_margin}
         >
-          <LayoutBlurb
-            dangerouslySetInnerHTML={{ __html: props.layout.blurb }}
-          />
-          {props.layout.add_button ? (
+          {layout.blurb && (
+            <LayoutBlurb dangerouslySetInnerHTML={{ __html: layout.blurb }} />
+          )}
+          {layout.add_button && (
             <Button
               to={props.layout.button_link.url}
               target={props.layout.button_link.target}
             >
               {props.layout.button_link.title}
             </Button>
-          ) : null}
+          )}
         </Content>
       </Wrap>
     </HeroUnit>

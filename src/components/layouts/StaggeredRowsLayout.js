@@ -65,14 +65,14 @@ const StaggeredRowsLayout = props => (
                 rowIndex={index}
                 dangerouslySetInnerHTML={{ __html: row.blurb }}
               />
-              {row.add_button ? (
+              {row.add_button && (
                 <Button
                   to={row.button_link.url}
                   target={row.button_link.target}
                 >
                   {row.button_link.title}
                 </Button>
-              ) : null}
+              )}
             </Content>
           </ContentContainer>
         </FlexWrap>

@@ -54,15 +54,17 @@ const ImageBlocksLayout = props => (
         >
           <Overlay />
           <Content>
-            <LayoutBlurb dangerouslySetInnerHTML={{ __html: block.blurb }} />
-            {block.add_button ? (
+            {block.blurb && (
+              <LayoutBlurb dangerouslySetInnerHTML={{ __html: block.blurb }} />
+            )}
+            {block.add_button && (
               <Button
                 to={block.button_link.url}
                 target={block.button_link.target}
               >
                 {block.button_link.title}
               </Button>
-            ) : null}
+            )}
           </Content>
         </Tile>
       ))}

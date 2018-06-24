@@ -176,6 +176,14 @@ const SliderLayout = props => {
                   <LayoutBlurb
                     dangerouslySetInnerHTML={{ __html: slide.blurb }}
                   />
+                  {slide.add_button && (
+                    <Button
+                      to={slide.button_link.url}
+                      target={slide.button_link.target}
+                    >
+                      {slide.button_link.title}
+                    </Button>
+                  )}
                 </SlideText>
               </ContentContainer>
             </BackgroundImage>

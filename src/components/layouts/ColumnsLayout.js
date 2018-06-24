@@ -59,17 +59,21 @@ const ColumnsLayout = props => (
           threeColOffset={props.layout.wordpress_3_col_offset}
           flexible={props.layout.flexible_columns}
         >
-          <Circle url={column.image.localFile.childImageSharp.resize.src} />
-          <ColumnHeader>{column.header}</ColumnHeader>
-          <ColumnBlurb dangerouslySetInnerHTML={{ __html: column.blurb }} />
-          {column.add_button ? (
+          {column.image && (
+            <Circle url={column.image.localFile.childImageSharp.resize.src} />
+          )}
+          {column.header && <ColumnHeader>{column.header}</ColumnHeader>}
+          {column.blurb && (
+            <ColumnBlurb dangerouslySetInnerHTML={{ __html: column.blurb }} />
+          )}
+          {column.add_button && (
             <Button
               to={column.button_link.url}
               target={column.button_link.target}
             >
               {column.button_link.title}
             </Button>
-          ) : null}
+          )}
         </Column>
       ))}
     </ColumnsContainer>

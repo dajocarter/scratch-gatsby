@@ -65,21 +65,23 @@ const CardsLayout = props => (
     <CardsContainer>
       {props.layout.cards.map((card, index) => (
         <Card key={`card-${index}`}>
-          {card.image ? (
+          {card.image && (
             <CardImg sizes={card.image.localFile.childImageSharp.sizes} />
-          ) : null}
+          )}
           <CardBlock>
-            <CardTitle>{card.header}</CardTitle>
+            {card.header && <CardTitle>{card.header}</CardTitle>}
             <CardText>
-              <Blurb dangerouslySetInnerHTML={{ __html: card.blurb }} />
-              {card.add_button ? (
+              {card.blurb && (
+                <Blurb dangerouslySetInnerHTML={{ __html: card.blurb }} />
+              )}
+              {card.add_button && (
                 <Button
                   to={card.button_link.url}
                   target={card.button_link.target}
                 >
                   {card.button_link.title}
                 </Button>
-              ) : null}
+              )}
             </CardText>
           </CardBlock>
         </Card>
