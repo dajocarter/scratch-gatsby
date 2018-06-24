@@ -9,28 +9,22 @@ import {
   Button
 } from "../Styles";
 
-const HeroUnit = BackgroundImage.extend`
-  background-position: ${props => props.position};
-`;
-
 const Content = styled.div`
   position: relative;
   color: #fff;
-  text-align: ${props => props.textAlign};
-  padding: ${props => `${props.textMargin}rem 0`};
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  text-align: center;
 `;
 
 const HeroLayout = ({ layout }) => (
   <LayoutSection>
-    <HeroUnit
+    <BackgroundImage
       url={layout.background_image.localFile.childImageSharp.original.src}
     >
       <Overlay />
       <Wrap>
-        <Content
-          textAlign={props.layout.text_align}
-          textMargin={props.layout.text_margin}
-        >
+        <Content>
           {layout.blurb && (
             <LayoutBlurb dangerouslySetInnerHTML={{ __html: layout.blurb }} />
           )}
@@ -44,7 +38,7 @@ const HeroLayout = ({ layout }) => (
           )}
         </Content>
       </Wrap>
-    </HeroUnit>
+    </BackgroundImage>
   </LayoutSection>
 );
 
