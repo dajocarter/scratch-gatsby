@@ -5,23 +5,23 @@ import Img from "gatsby-image";
 import styled from "styled-components";
 
 const Logos = styled.div`
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: space-around;
-	align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
 `;
 
 const LinkedLogo = styled(Link)`
-	flex: 0 0 auto;
+  flex: 0 0 auto;
 `;
 
 const Logo = styled(Img)`
-	flex: 0 0 auto;
-	display: block;
-	width: 100%;
-	max-width: 150px;
-	height: auto;
-	margin: 0 auto 10px;
+  flex: 0 0 auto;
+  display: block;
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  margin: 0 auto 10px;
 `;
 
 const LogoDisplay = props => (
@@ -45,7 +45,7 @@ const LogoDisplay = props => (
 );
 
 LogoDisplay.propTypes = {
-	logos: PropTypes.arrayOf(PropTypes.object)
+  logos: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default LogoDisplay;
