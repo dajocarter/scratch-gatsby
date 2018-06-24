@@ -20,11 +20,10 @@ const Content = styled.div`
   padding: ${props => `${props.textMargin}rem 0`};
 `;
 
-const HeroLayout = props => (
+const HeroLayout = ({ layout }) => (
   <LayoutSection>
     <HeroUnit
-      url={props.layout.background_image.localFile.childImageSharp.original.src}
-      position={`${props.layout.bg_image_pos_x} ${props.layout.bg_image_pos_y}`}
+      url={layout.background_image.localFile.childImageSharp.original.src}
     >
       <Overlay />
       <Wrap>
@@ -37,10 +36,10 @@ const HeroLayout = props => (
           )}
           {layout.add_button && (
             <Button
-              to={props.layout.button_link.url}
-              target={props.layout.button_link.target}
+              to={layout.button_link.url}
+              target={layout.button_link.target}
             >
-              {props.layout.button_link.title}
+              {layout.button_link.title}
             </Button>
           )}
         </Content>

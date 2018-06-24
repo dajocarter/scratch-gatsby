@@ -47,17 +47,17 @@ const ColumnHeader = styled.h4``;
 
 const ColumnBlurb = styled.div``;
 
-const ColumnsLayout = props => (
+const ColumnsLayout = ({ layout }) => (
   <LayoutSection>
     <ColumnsContainer>
-      {props.layout.columns.map((column, index) => (
+      {layout.columns.map((column, index) => (
         <Column
           key={`column-${index}`}
           columnIndex={index}
-          numOfColumns={parseInt(props.layout.number_of_columns, 10)}
-          twoColOffset={props.layout.wordpress_2_col_offset}
-          threeColOffset={props.layout.wordpress_3_col_offset}
-          flexible={props.layout.flexible_columns}
+          numOfColumns={parseInt(layout.number_of_columns, 10)}
+          twoColOffset={layout.wordpress_2_col_offset}
+          threeColOffset={layout.wordpress_3_col_offset}
+          flexible={layout.flexible_columns}
         >
           {column.image && (
             <Circle url={column.image.localFile.childImageSharp.resize.src} />

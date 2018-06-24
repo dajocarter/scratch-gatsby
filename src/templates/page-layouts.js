@@ -13,9 +13,9 @@ import WysiwygsLayout from "../components/layouts/WysiwygsLayout";
 
 const Article = styled.article``;
 
-const PageLayoutsTemplate = props => (
-  <Article className={postClasses(props.data.wordpressPage)}>
-    {props.data.wordpressPage.acf.layout_page.map((layout, index) => {
+const PageLayoutsTemplate = ({ data }) => (
+  <Article className={postClasses(data.wordpressPage)}>
+    {data.wordpressPage.acf.layouts_page.map((layout, index) => {
       switch (layout.__typename) {
         case "WordPressAcf_cards":
           return <CardsLayout layout={layout} key={index} />;

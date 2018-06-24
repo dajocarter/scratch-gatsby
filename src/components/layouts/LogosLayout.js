@@ -3,13 +3,13 @@ import { LayoutSection, Wrap } from "../Styles";
 import LogoDisplay from "../LogoDisplay";
 import LogoSlick from "../LogoSlick";
 
-const LogosLayout = props => (
+const LogosLayout = ({ layout }) => (
   <LayoutSection>
     <Wrap>
-      {props.layout.logo_display === "all" ? (
-        <LogoDisplay logos={props.layout.logos} />
+      {layout.logo_display === "all" ? (
+        <LogoDisplay logos={layout.logos} />
       ) : (
-        <LogoSlick logos={props.layout.logos} />
+        <LogoSlick logos={layout.logos} />
       )}
     </Wrap>
   </LayoutSection>

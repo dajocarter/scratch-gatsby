@@ -141,7 +141,7 @@ const SlideText = styled.div`
   }
 `;
 
-const SliderLayout = props => {
+const SliderLayout = ({ layout }) => {
   const settings = {
     autoplay: true,
     autoplaySpeed: 3000,
@@ -165,7 +165,7 @@ const SliderLayout = props => {
     <SliderSection>
       <Wrap>
         <Slider {...settings}>
-          {props.layout.slides.map((slide, index) => (
+          {layout.slides.map((slide, index) => (
             <BackgroundImage
               key={`slide-${index}`}
               url={slide.background.localFile.childImageSharp.original.src}

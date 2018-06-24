@@ -44,10 +44,10 @@ const Content = styled.div`
   }
 `;
 
-const ImageBlocksLayout = props => (
+const ImageBlocksLayout = ({ layout }) => (
   <LayoutSection>
     <FlexWrap>
-      {props.layout.image_blocks.map((block, index) => (
+      {layout.image_blocks.map((block, index) => (
         <Tile
           key={index}
           url={block.background_image.localFile.childImageSharp.original.src}

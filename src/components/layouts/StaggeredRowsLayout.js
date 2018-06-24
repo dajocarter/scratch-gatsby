@@ -51,9 +51,9 @@ const Blurb = LayoutBlurb.extend`
   }
 `;
 
-const StaggeredRowsLayout = props => (
+const StaggeredRowsLayout = ({ layout }) => (
   <LayoutSection>
-    {props.layout.rows.map((row, index) => (
+    {layout.rows.map((row, index) => (
       <Row key={`row-${index}`} rowIndex={index}>
         <FlexWrap>
           <ImageContainer rowIndex={index}>

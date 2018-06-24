@@ -60,10 +60,10 @@ const CardText = styled.div``;
 
 const Blurb = styled.div``;
 
-const CardsLayout = props => (
+const CardsLayout = ({ layout }) => (
   <LayoutSection>
     <CardsContainer>
-      {props.layout.cards.map((card, index) => (
+      {layout.cards.map((card, index) => (
         <Card key={`card-${index}`}>
           {card.image && (
             <CardImg sizes={card.image.localFile.childImageSharp.sizes} />

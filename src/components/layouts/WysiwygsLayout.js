@@ -19,14 +19,14 @@ const Wysiwyg = styled.div`
   }
 `;
 
-const WysiwygsLayout = props => (
+const WysiwygsLayout = ({ layout }) => (
   <LayoutSection>
     <FlexWrap>
-      {props.layout.wysiwygs.map((column, index) => {
+      {layout.wysiwygs.map((column, index) => {
         return (
           <Wysiwyg
             key={index}
-            offset={props.layout.offset}
+            offset={layout.offset}
             order={index}
             dangerouslySetInnerHTML={{ __html: column.wysiwyg }}
           />

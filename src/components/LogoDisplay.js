@@ -24,24 +24,24 @@ const Logo = styled(Img)`
   margin: 0 auto 10px;
 `;
 
-const LogoDisplay = props => (
-	<Logos>
-		{props.logos.map(
-			(image, index) =>
-				image.link ? (
-					<LinkedLogo key={`logo-${index}`} to={image.link.url}>
-						<Logo
-							resolutions={image.logo.localFile.childImageSharp.resolutions}
-						/>
-					</LinkedLogo>
-				) : (
-					<Logo
-						key={`logo-${index}`}
-						resolutions={image.logo.localFile.childImageSharp.resolutions}
-					/>
-				)
-		)}
-	</Logos>
+const LogoDisplay = ({ logos }) => (
+  <Logos>
+    {logos.map(
+      (image, index) =>
+        image.link ? (
+          <LinkedLogo key={`logo-${index}`} to={image.link}>
+            <Logo
+              resolutions={image.logo.localFile.childImageSharp.resolutions}
+            />
+          </LinkedLogo>
+        ) : (
+          <Logo
+            key={`logo-${index}`}
+            resolutions={image.logo.localFile.childImageSharp.resolutions}
+          />
+        )
+    )}
+  </Logos>
 );
 
 LogoDisplay.propTypes = {
