@@ -40,6 +40,16 @@ export const Overlay = styled.div`
 
 export const LayoutBlurb = styled.div`
   text-align: center;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    &:first-child {
+      margin-top: 0;
+    }
+  }
   p {
     &:first-child {
       margin-top: 0;
