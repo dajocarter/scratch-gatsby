@@ -5,7 +5,6 @@ import {
   FlexWrap,
   BackgroundImage,
   Overlay,
-  LayoutHeader,
   LayoutBlurb,
   Button
 } from "../Styles";
@@ -55,7 +54,6 @@ const ImageBlocksLayout = props => (
         >
           <Overlay />
           <Content>
-            <LayoutHeader>{block.header}</LayoutHeader>
             <LayoutBlurb dangerouslySetInnerHTML={{ __html: block.blurb }} />
             {block.add_button ? (
               <Button

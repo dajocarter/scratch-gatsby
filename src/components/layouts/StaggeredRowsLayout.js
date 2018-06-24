@@ -4,7 +4,6 @@ import {
   LayoutSection,
   FlexWrap,
   Circle,
-  LayoutHeader,
   LayoutBlurb,
   Button
 } from "../Styles";
@@ -46,12 +45,6 @@ const ContentContainer = styled.div`
 
 const Content = styled.div``;
 
-const Header = LayoutHeader.extend`
-  @media (min-width: 768px) {
-    text-align: ${props => (props.rowIndex % 2 ? `right` : `left`)};
-  }
-`;
-
 const Blurb = LayoutBlurb.extend`
   @media (min-width: 768px) {
     text-align: ${props => (props.rowIndex % 2 ? `right` : `left`)};
@@ -68,7 +61,6 @@ const StaggeredRowsLayout = props => (
           </ImageContainer>
           <ContentContainer rowIndex={index}>
             <Content>
-              <Header rowIndex={index}>{row.header}</Header>
               <Blurb
                 rowIndex={index}
                 dangerouslySetInnerHTML={{ __html: row.blurb }}

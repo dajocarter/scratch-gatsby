@@ -38,11 +38,6 @@ export const Overlay = styled.div`
   background: rgba(0, 0, 0, 0.25);
 `;
 
-export const LayoutHeader = styled.h2`
-  text-align: center;
-  margin-top: 0;
-`;
-
 export const LayoutBlurb = styled.div`
   text-align: center;
   p {

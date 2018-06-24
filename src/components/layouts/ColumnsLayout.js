@@ -1,14 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {
-  LayoutSection,
-  Wrap,
-  FlexWrap,
-  LayoutHeader,
-  LayoutBlurb,
-  Button,
-  Circle
-} from "../Styles";
+import { LayoutSection, FlexWrap, Button, Circle } from "../Styles";
 
 const ColumnsContainer = FlexWrap.extend`
   justify-content: flex-start;
@@ -57,10 +49,6 @@ const ColumnBlurb = styled.div``;
 
 const ColumnsLayout = props => (
   <LayoutSection>
-    <Wrap>
-      <LayoutHeader>{props.layout.header}</LayoutHeader>
-      <LayoutBlurb dangerouslySetInnerHTML={{ __html: props.layout.blurb }} />
-    </Wrap>
     <ColumnsContainer>
       {props.layout.columns.map((column, index) => (
         <Column

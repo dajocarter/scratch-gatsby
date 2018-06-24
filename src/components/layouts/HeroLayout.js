@@ -5,7 +5,6 @@ import {
   BackgroundImage,
   Overlay,
   Wrap,
-  LayoutHeader,
   LayoutBlurb,
   Button
 } from "../Styles";
@@ -33,7 +32,6 @@ const HeroLayout = props => (
           textAlign={props.layout.text_align}
           textMargin={props.layout.text_margin}
         >
-          <LayoutHeader>{props.layout.header}</LayoutHeader>
           <LayoutBlurb
             dangerouslySetInnerHTML={{ __html: props.layout.blurb }}
           />

@@ -6,7 +6,6 @@ import {
   Wrap,
   BackgroundImage,
   Overlay,
-  LayoutHeader,
   LayoutBlurb,
   Button
 } from "../Styles";
@@ -174,7 +173,6 @@ const SliderLayout = props => {
               <Overlay />
               <ContentContainer>
                 <SlideText>
-                  <LayoutHeader>{slide.header}</LayoutHeader>
                   <LayoutBlurb
                     dangerouslySetInnerHTML={{ __html: slide.blurb }}
                   />

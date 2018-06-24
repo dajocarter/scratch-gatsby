@@ -1,5 +1,5 @@
 import React from "react";
-import { LayoutSection, Wrap, LayoutHeader, FlexWrap } from "../Styles";
+import { LayoutSection, FlexWrap } from "../Styles";
 import styled from "styled-components";
 
 const Wysiwyg = styled.div`
@@ -21,9 +21,6 @@ const Wysiwyg = styled.div`
 
 const WysiwygsLayout = props => (
   <LayoutSection>
-    <Wrap>
-      <LayoutHeader>{props.layout.header}</LayoutHeader>
-    </Wrap>
     <FlexWrap>
       {props.layout.wysiwygs.map((column, index) => {
         return (
