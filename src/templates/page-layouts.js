@@ -64,7 +64,7 @@ export const pageQuery = graphql`
       type
       status
       acf {
-        layout_page {
+        layouts_page {
           __typename
           ... on WordPressAcf_cards {
             number_of_columns
@@ -101,11 +101,6 @@ export const pageQuery = graphql`
                 }
               }
             }
-            bg_image_pos_x
-            bg_image_pos_y
-            text_align
-            text_margin
-            header
             blurb
             add_button
             button_link {
@@ -114,13 +109,11 @@ export const pageQuery = graphql`
               url
             }
           }
-          ... on WordPressAcf_flexible_columns {
+          ... on WordPressAcf_columns {
             number_of_columns
             wordpress_2_col_offset
             wordpress_3_col_offset
             flexible_columns
-            header
-            blurb
             columns {
               image {
                 localFile {
@@ -143,8 +136,6 @@ export const pageQuery = graphql`
           }
           ... on WordPressAcf_image_blocks {
             offset
-            post_animate
-            post_animation
             image_blocks {
               background_image {
                 localFile {
@@ -155,15 +146,16 @@ export const pageQuery = graphql`
                   }
                 }
               }
-              header
               blurb
-              animate
-              animation
               add_button
+              button_link {
+                title
+                url
+                target
+              }
             }
           }
           ... on WordPressAcf_logos_section {
-            header
             logo_display
             logos {
               logo {
@@ -178,22 +170,6 @@ export const pageQuery = graphql`
               link
             }
           }
-          ... on WordPressAcf_multiple_images_with_text {
-            image_side
-            images {
-              localFile {
-                childImageSharp {
-                  resolutions(width: 400) {
-                    src
-                    srcSet
-                  }
-                }
-              }
-            }
-            header
-            content
-            add_button
-          }
           ... on WordPressAcf_slider {
             slides {
               background {
@@ -205,9 +181,13 @@ export const pageQuery = graphql`
                   }
                 }
               }
-              header
               blurb
               add_button
+              button_link {
+                title
+                url
+                target
+              }
             }
           }
           ... on WordPressAcf_staggered_images_with_text {
@@ -221,7 +201,6 @@ export const pageQuery = graphql`
                   }
                 }
               }
-              header
               blurb
               add_button
               button_link {
@@ -232,40 +211,13 @@ export const pageQuery = graphql`
             }
           }
           ... on WordPressAcf_toggles {
-            header
-            blurb
             toggles {
               toggle_header
               toggle_content
             }
           }
-          ... on WordPressAcf_video {
-            video_fallback_image {
-              localFile {
-                childImageSharp {
-                  resolutions(width: 400) {
-                    aspectRatio
-                    width
-                    height
-                    src
-                    srcSet
-                    srcWebp
-                    srcSetWebp
-                    originalName
-                  }
-                }
-              }
-            }
-            video_attributes
-            video_mp4_file
-            video_webm_file
-            video_ogv_file
-            header
-            blurb
-            add_button
-          }
+
           ... on WordPressAcf_wysiwygs {
-            header
             offset
             wysiwygs {
               wysiwyg
