@@ -179,9 +179,8 @@ const SliderLayout = ({ layout }) => {
       <Wrap>
         <Slider {...settings}>
           {layout.slides.map((slide, index) => (
-            <Slide>
+            <Slide key={`slide-${index}`}>
               <SlideImg
-                key={`slide-${index}`}
                 sizes={slide.background.localFile.childImageSharp.sizes}
               />
               <Overlay />
