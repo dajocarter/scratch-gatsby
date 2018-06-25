@@ -5,6 +5,7 @@ import { LayoutSection, Overlay, Wrap, LayoutBlurb, Button } from "../Styles";
 
 const Section = styled(LayoutSection)`
   position: relative;
+  margin-bottom: 2rem;
 `;
 
 const Content = styled.div`

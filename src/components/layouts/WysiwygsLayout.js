@@ -5,6 +5,7 @@ import styled from "styled-components";
 const Wysiwyg = styled.div`
   box-sizing: border-box;
   flex: 1 1 100%;
+  margin-bottom: 2rem;
   @media (min-width: 767px) {
     flex: ${props => {
       if (props.offset === "2 to 1") {

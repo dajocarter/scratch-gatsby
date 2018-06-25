@@ -21,7 +21,7 @@ const Logo = styled(Img)`
   width: 100%;
   max-width: 150px;
   height: auto;
-  margin: 0 auto 10px;
+  margin: 0 auto 2rem;
 `;
 
 const LogoDisplay = ({ logos }) => (

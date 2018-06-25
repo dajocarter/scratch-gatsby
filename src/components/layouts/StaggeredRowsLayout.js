@@ -8,6 +8,10 @@ import {
   Button
 } from "../Styles";
 
+const Section = styled(LayoutSection)`
+  margin-bottom: 2rem;
+`;
+
 const Row = styled.div`
   background-color: ${props => (props.rowIndex % 2 ? `#fff` : `#ccc`)};
   padding: 3rem 1rem;
@@ -52,7 +56,7 @@ const Blurb = LayoutBlurb.extend`
 `;
 
 const StaggeredRowsLayout = ({ layout }) => (
-  <LayoutSection>
+  <Section>
     {layout.rows.map((row, index) => (
       <Row key={`row-${index}`} rowIndex={index}>
         <FlexWrap>
@@ -78,7 +82,7 @@ const StaggeredRowsLayout = ({ layout }) => (
         </FlexWrap>
       </Row>
     ))}
-  </LayoutSection>
+  </Section>
 );
 
 export default StaggeredRowsLayout;

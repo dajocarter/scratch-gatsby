@@ -3,9 +3,7 @@ import styled from "styled-components";
 import { darken } from "polished";
 import Link from "gatsby-link";
 
-export const LayoutSection = styled.section`
-  margin-bottom: 2rem;
-`;
+export const LayoutSection = styled.section``;
 
 export const Wrap = styled.div`
   margin: 0 auto;

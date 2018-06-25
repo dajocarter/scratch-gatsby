@@ -15,12 +15,7 @@ const Tile = BackgroundImage.extend`
   justify-content: center;
   align-items: center;
   flex: 0 0 100%;
-
-  @media (max-width: 767px) {
-    &:not(:last-child) {
-      margin-bottom: 2rem;
-    }
-  }
+  margin-bottom: 2rem;
 
   @media (min-width: 768px) {
     flex: 0 0 45%;
