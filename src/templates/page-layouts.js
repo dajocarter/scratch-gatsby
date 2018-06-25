@@ -219,6 +219,7 @@ export const pageQuery = graphql`
 
           ... on WordPressAcf_wysiwygs {
             offset
+            flexible
             wysiwygs {
               wysiwyg
             }

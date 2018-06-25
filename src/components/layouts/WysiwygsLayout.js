@@ -9,14 +9,21 @@ const Wysiwyg = styled.div`
   @media (min-width: 767px) {
     flex: ${props => {
       if (props.offset === "2 to 1") {
-        return props.order % 2 ? `1 0 33%` : `0 0 66%`;
+        return props.order % 2
+          ? `1 0 32%`
+          : props.flexible
+            ? `1 0 64%`
+            : `0 0 64%`;
       } else if (props.offset === "1 to 2") {
-        return props.order % 2 ? `1 0 66%` : `0 0 33%`;
+        return props.order % 2
+          ? `1 0 64%`
+          : props.flexible
+            ? `1 0 32%`
+            : `0 0 32%`;
       } else {
-        return `1 0 50%`;
+        return props.flexible ? `1 0 48%` : `0 0 48%`;
       }
     }};
-    padding-left: ${props => (props.order % 2 ? `2rem` : `0rem`)};
   }
 `;
 
@@ -29,6 +36,7 @@ const WysiwygsLayout = ({ layout }) => (
             key={index}
             offset={layout.offset}
             order={index}
+            flexible={layout.flexible}
             dangerouslySetInnerHTML={{ __html: column.wysiwyg }}
           />
         );
