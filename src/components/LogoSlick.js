@@ -60,7 +60,7 @@ class LogoSlick extends Component {
           {this.props.logos.map((image, index) => (
             <Slide key={`logo-${index}`}>
               {image.link ? (
-                <Link to={image.link.url}>
+                <Link to={image.link}>
                   <SlideImg
                     resolutions={
                       image.logo.localFile.childImageSharp.resolutions
