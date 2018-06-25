@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Img from "gatsby-image";
 import styled from "styled-components";
 import {
   LayoutSection,
@@ -19,18 +20,6 @@ const SliderSection = LayoutSection.extend`
   margin-bottom: 2rem;
 
   .slick-slider {
-    &,
-    .slick-slide {
-      height: 350px;
-      overflow: hidden;
-
-      &:not(.slide-logos) {
-        @media (min-width: 767px) {
-          height: 500px;
-        }
-      }
-    }
-
     .slick-arrow {
       background-color: transparent;
       height: auto;
@@ -123,6 +112,10 @@ const SliderSection = LayoutSection.extend`
   }
 `;
 
+const Slide = styled.div`
+  position: relative;
+`;
+
 const ContentContainer = styled.div`
   position: absolute;
   top: 50%;
@@ -130,6 +123,24 @@ const ContentContainer = styled.div`
   transform: translate(-50%, -50%);
   max-width: 960px;
   width: 100%;
+`;
+
+const SlideImg = styled(Img)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  height: ${props => props.height || "auto"};
+  max-height: 500px;
+
+  & > img {
+    object-fit: ${props => props.fit || "cover"} !important;
+    object-position: ${props => props.position || "50% 50%"} !important;
+    font-family: 'object-fit: ${props =>
+      props.fit || "cover"} !important; object-position: ${props =>
+  props.position || "50% 50%"} !important;'
+  }
 `;
 
 const SlideText = styled.div`
@@ -168,10 +179,11 @@ const SliderLayout = ({ layout }) => {
       <Wrap>
         <Slider {...settings}>
           {layout.slides.map((slide, index) => (
-            <BackgroundImage
-              key={`slide-${index}`}
-              url={slide.background.localFile.childImageSharp.original.src}
-            >
+            <Slide>
+              <SlideImg
+                key={`slide-${index}`}
+                sizes={slide.background.localFile.childImageSharp.sizes}
+              />
               <Overlay />
               <ContentContainer>
                 <SlideText>
@@ -188,7 +200,7 @@ const SliderLayout = ({ layout }) => {
                   )}
                 </SlideText>
               </ContentContainer>
-            </BackgroundImage>
+            </Slide>
           ))}
         </Slider>
       </Wrap>

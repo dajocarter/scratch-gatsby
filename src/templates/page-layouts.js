@@ -175,8 +175,8 @@ export const pageQuery = graphql`
               background {
                 localFile {
                   childImageSharp {
-                    original {
-                      src
+                    sizes(maxWidth: 6000) {
+                      ...GatsbyImageSharpSizes_tracedSVG
                     }
                   }
                 }
