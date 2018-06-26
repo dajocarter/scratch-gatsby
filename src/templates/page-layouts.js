@@ -70,7 +70,6 @@ export const pageQuery = graphql`
             number_of_columns
             wordpress_2_col_offset
             wordpress_3_col_offset
-            flexible_columns
             cards {
               header
               blurb

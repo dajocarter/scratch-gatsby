@@ -15,63 +15,43 @@ const Card = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  flex: 1 1 100%;
+  flex: 0 0 100%;
   text-align: center;
 
   @media (min-width: 768px) {
     flex: ${props => {
       switch (props.colSize) {
         case "1":
-          return "1 1 100%";
+          return "0 0 100%";
           break;
         case "2":
           if (props.twoColOffset === "2 to 1") {
-            return props.order % 2
-              ? `1 0 32%`
-              : props.flexible
-                ? `1 0 64%`
-                : `0 0 64%`;
+            return props.order % 2 === 1 ? `0 0 32%` : `0 0 64%`;
           } else if (props.twoColOffset === "1 to 2") {
-            return props.order % 2
-              ? `1 0 64%`
-              : props.flexible
-                ? `1 0 32%`
-                : `0 0 32%`;
+            return props.order % 2 === 0 ? `0 0 32%` : `0 0 64%`;
           } else {
-            return props.flexible ? `1 0 48%` : `0 0 48%`;
+            return `0 0 48%`;
           }
           break;
         case "3":
           if (props.threeColOffset === "1 to 1 to 2") {
-            return props.order % 3 === 2
-              ? `1 0 48%`
-              : props.flexible
-                ? `1 0 24%`
-                : `0 0 24%`;
+            return props.order % 3 === 2 ? `0 0 48%` : `0 0 24%`;
           } else if (props.threeColOffset === "1 to 2 to 1") {
-            return props.order % 3 === 1
-              ? `1 0 48%`
-              : props.flexible
-                ? `1 0 24%`
-                : `0 0 24%`;
+            return props.order % 3 === 1 ? `0 0 48%` : `0 0 24%`;
           } else if (props.threeColOffset === "2 to 1 to 1") {
-            return props.order % 3 === 0
-              ? `1 0 48%`
-              : props.flexible
-                ? `1 0 24%`
-                : `0 0 24%`;
+            return props.order % 3 === 0 ? `0 0 48%` : `0 0 24%`;
           } else {
-            return props.flexible ? `1 0 32%` : `0 0 32%`;
+            return `0 0 32%`;
           }
           break;
         case "4":
-          return props.flexible ? `1 0 24%` : `0 0 24%`;
+          return `0 0 24%`;
           break;
         case "5":
-          return props.flexible ? `1 0 19.2%` : `0 0 19.2%`;
+          return `0 0 19.2%`;
           break;
         case "6":
-          return props.flexible ? `1 0 16%` : `0 0 16%`;
+          return `0 0 16%`;
           break;
       }
     }};
@@ -106,7 +86,6 @@ const CardsLayout = ({ layout }) => (
       {layout.cards.map((card, index) => (
         <Card
           key={`card-${index}`}
-          flexible={layout.flexible_columns}
           colSize={layout.number_of_columns}
           order={index}
           twoColOffset={layout.wordpress_2_col_offset}
