@@ -23,7 +23,7 @@ const PageLayoutsTemplate = ({ data }) => (
         case "WordPressAcf_hero_unit":
           return <HeroLayout layout={layout} key={index} />;
           break;
-        case "WordPressAcf_flexible_columns":
+        case "WordPressAcf_columns":
           return <ColumnsLayout layout={layout} key={index} />;
           break;
         case "WordPressAcf_image_blocks":
