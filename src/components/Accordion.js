@@ -13,7 +13,7 @@ const ToggleTitle = styled.h2`
   color: #3d9970;
   cursor: pointer;
   display: block;
-  margin: 1.5rem auto 0;
+  margin: 0 auto;
   padding: 0.5rem 1.75rem 0.5rem 0.5rem;
   position: relative;
 
