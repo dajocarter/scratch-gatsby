@@ -5,7 +5,6 @@ import Helmet from "react-helmet";
 import logo from "./site-logo.svg";
 import styled, { injectGlobal } from "styled-components";
 import { clearFix, darken, normalize } from "polished";
-import "./grid.scss";
 
 injectGlobal`
 	${normalize()};
