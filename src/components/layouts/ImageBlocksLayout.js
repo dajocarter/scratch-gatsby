@@ -9,6 +9,10 @@ import {
   Button
 } from "../Styles";
 
+const Container = FlexWrap.extend`
+  align-items: stretch;
+`;
+
 const Tile = BackgroundImage.extend`
   display: flex;
   flex-flow: row wrap;
@@ -18,12 +22,7 @@ const Tile = BackgroundImage.extend`
   margin-bottom: 2rem;
 
   @media (min-width: 768px) {
-    flex: 0 0 45%;
-    min-height: 525px;
-  }
-
-  @media (min-width: 935px) {
-    min-height: 475px;
+    flex: 0 0 48%;
   }
 `;
 
@@ -33,15 +32,11 @@ const Content = styled.div`
   position: relative;
   text-align: center;
   z-index: 1;
-
-  @media (min-width: 767px) {
-    position: absolute;
-  }
 `;
 
 const ImageBlocksLayout = ({ layout }) => (
   <LayoutSection>
-    <FlexWrap>
+    <Container>
       {layout.image_blocks.map((block, index) => (
         <Tile
           key={index}
@@ -63,7 +58,7 @@ const ImageBlocksLayout = ({ layout }) => (
           </Content>
         </Tile>
       ))}
-    </FlexWrap>
+    </Container>
   </LayoutSection>
 );
 
