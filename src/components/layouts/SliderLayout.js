@@ -99,17 +99,6 @@ const SliderSection = LayoutSection.extend`
       }
     }
   }
-
-  .slide-logos {
-    &,
-    .slick-slide {
-      height: 200px;
-    }
-    img {
-      padding: 0 10px;
-      width: 100%;
-    }
-  }
 `;
 
 const Slide = styled.div`

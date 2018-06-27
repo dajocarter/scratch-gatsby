@@ -5,18 +5,15 @@ import Link from "gatsby-link";
 import Img from "gatsby-image";
 import Slider from "react-slick";
 
-const LogoSlider = styled.div`
-  height: 200px;
-  margin-bottom: 2rem;
-`;
+const LogoSlider = styled.div``;
 
 const Slide = styled.div`
-  height: 200px;
+  text-align: center;
 `;
 
 const SlideImg = styled(Img)`
-  padding: 0 10px;
-  width: 100%;
+  display: block;
+  margin-bottom: 2rem;
 `;
 class LogoSlick extends Component {
   render() {
@@ -33,8 +30,7 @@ class LogoSlick extends Component {
           settings: {
             slidesToShow: 3,
             slidesToScroll: 3,
-            infinite: true,
-            dots: true
+            infinite: true
           }
         },
         {
